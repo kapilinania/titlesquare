@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TitleSquare — Something Extraordinary is Coming Soon</title>
+  <meta name="description" content="TitleSquare is building the next-generation digital workspace and title platform. Sign up for exclusive early access and launch updates.">
+  <meta name="keywords" content="TitleSquare, Launching Soon, Coming Soon, Digital Workspace, Title Management, Platform">
+  
+  <!-- Open Graph / Social Media Meta -->
+  <meta property="og:title" content="TitleSquare — Launching Soon">
+  <meta property="og:description" content="Something extraordinary is in the works. Get early VIP access to TitleSquare.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Elements -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- App Wrapper -->
+  <div class="app-container">
+    
+    <!-- Site Header -->
+    <header class="site-header">
+      <a href="#" class="brand-logo" aria-label="TitleSquare Home">
+        <div class="logo-icon-box">
+          <svg class="logo-svg" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#818cf8"/>
+                <stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+            <rect x="3" y="3" width="8" height="8" rx="2" stroke-width="2"/>
+            <rect x="13" y="3" width="8" height="8" rx="2" stroke-width="2"/>
+            <rect x="3" y="13" width="8" height="8" rx="2" stroke-width="2"/>
+            <rect x="13" y="13" width="8" height="8" rx="2" stroke-width="2"/>
+          </svg>
+        </div>
+        <span>TitleSquare</span>
+      </a>
+
+      <div class="header-actions">
+        <button id="sound-toggle" class="icon-btn" title="Toggle Ambient Audio" aria-label="Toggle Sound">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
+
+        <button id="share-btn" class="icon-btn" title="Share Page" aria-label="Share Page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="main-hero">
+      
+      <!-- Status Badge -->
+      <div class="status-pill">
+        <span class="pulse-dot"></span>
+        <span>Next-Gen Platform &bull; Launching Soon</span>
+      </div>
+
+      <!-- Hero Heading -->
+      <h1 class="hero-title">
+        Reimagining Digital Space with <span class="gradient-text">TitleSquare</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        We are crafting an intelligent, seamless workspace designed to organize, elevate, and power your modern workflows. Get early VIP access before public launch.
+      </p>
+
+      <!-- Launch Roadmap & Milestones Section -->
+      <section class="roadmap-wrapper" aria-label="Product Launch Roadmap">
+        <div class="roadmap-header">
+          <span class="section-tag">Release Timeline</span>
+          <h2 class="roadmap-title">Roadmap to Launch</h2>
+          <p class="roadmap-subtitle">Track our engineering progress as we prepare for global launch.</p>
+        </div>
+
+        <div class="roadmap-timeline">
+          <!-- Step 1 -->
+          <div class="timeline-step step-completed">
+            <div class="step-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="step-content">
+              <div class="step-meta">
+                <span class="step-phase">Phase 01</span>
+                <span class="step-status status-done">Completed</span>
+              </div>
+              <h3 class="step-name">Architecture & Core Engine</h3>
+              <p class="step-desc">Built high-throughput indexing engine and security framework.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step step-active">
+            <div class="step-badge active-glow">
+              <span class="step-num">02</span>
+            </div>
+            <div class="step-content">
+              <div class="step-meta">
+                <span class="step-phase">Phase 02</span>
+                <span class="step-status status-live">In Progress &bull; 86%</span>
+              </div>
+              <h3 class="step-name">Private VIP Beta</h3>
+              <p class="step-desc">Onboarding select founding users for real-time collaboration testing.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step">
+            <div class="step-badge">
+              <span class="step-num">03</span>
+            </div>
+            <div class="step-content">
+              <div class="step-meta">
+                <span class="step-phase">Phase 03</span>
+                <span class="step-status status-upcoming">Upcoming</span>
+              </div>
+              <h3 class="step-name">Public Early Access</h3>
+              <p class="step-desc">Opening full platform features to waitlist subscribers.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step">
+            <div class="step-badge">
+              <span class="step-num">04</span>
+            </div>
+            <div class="step-content">
+              <div class="step-meta">
+                <span class="step-phase">Phase 04</span>
+                <span class="step-status status-upcoming">Q4 2026</span>
+              </div>
+              <h3 class="step-name">Global Ecosystem Rollout</h3>
+              <p class="step-desc">Launching mobile applications and developer API integrations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Track -->
+        <div class="progress-container" style="margin-top: 2rem;">
+          <div class="progress-info">
+            <span>Overall Launch Preparation</span>
+            <span id="progress-percent">86%</span>
+          </div>
+          <div class="progress-track">
+            <div id="progress-fill" class="progress-fill" style="width: 86%;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subscription Form Section -->
+      <div class="notify-box">
+        <form id="notify-form" class="notify-form">
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <input type="email" id="email-input" class="notify-input" placeholder="Enter your email for early access..." required autocomplete="email">
+          </div>
+          <button type="submit" class="notify-btn">
+            <span>Notify Me</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </form>
+
+        <div class="subscriber-count">
+          <div class="avatar-group">
+            <div class="avatar avatar-1"></div>
+            <div class="avatar avatar-2"></div>
+            <div class="avatar avatar-3"></div>
+          </div>
+          <span>Join <strong id="subscriber-count-val" style="color: var(--text-main);">1,428</strong> innovators on the waitlist</span>
+        </div>
+      </div>
+
+      <!-- VIP Member Perks Section -->
+      <section class="perks-section">
+        <span class="section-tag">Early Access Perks</span>
+        <h2 class="section-title">Why Join the Waitlist?</h2>
+        
+        <div class="perks-grid">
+          <div class="perk-card">
+            <div class="perk-badge-icon">🚀</div>
+            <h3 class="perk-title">Priority Onboarding</h3>
+            <p class="perk-desc">Get instant access days before public launch with direct invite key.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-badge-icon">👑</div>
+            <h3 class="perk-title">Founding Member Status</h3>
+            <p class="perk-desc">Receive exclusive verified founder badge and profile perks forever.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-badge-icon">💎</div>
+            <h3 class="perk-title">50% Lifetime Discount</h3>
+            <p class="perk-desc">Lock in exclusive founding tier pricing on all premium features.</p>
+          </div>
+
+          <div class="perk-card">
+            <div class="perk-badge-icon">💬</div>
+            <h3 class="perk-title">Direct Product Input</h3>
+            <p class="perk-desc">Join our private advisory community and shape our feature roadmap.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Teasers -->
+      <section class="features-section">
+        <span class="section-tag">What to Expect</span>
+        <h2 style="font-family: var(--font-heading); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem;">Built for the future</h2>
+        
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Smart Title Verification</h3>
+            <p class="feature-desc">Automated validation engine with real-time verification and high-speed indexing.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Global Workspace</h3>
+            <p class="feature-desc">Collaborate seamlessly across regions with zero latency sync and live presence.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">AI Automation Hub</h3>
+            <p class="feature-desc">Intelligent neural assistants to automate document routing, tagging, and structure.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Bank-Grade Security</h3>
+            <p class="feature-desc">End-to-end encryption with decentralized auditing and role-based governance.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-copy">
+        &copy; 2026 TitleSquare Inc. All rights reserved.
+      </div>
+      
+      <div class="social-links">
+        <a href="https://whatsapp.com" id="footer-whatsapp" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" id="footer-instagram" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Share Modal Overlay -->
+  <div id="share-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close" aria-label="Close modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <h3 class="modal-title">Share TitleSquare</h3>
+      <p class="modal-desc">Invite your friends & network to join the VIP early access list.</p>
+
+      <div class="share-options">
+        <!-- WhatsApp -->
+        <button id="share-whatsapp-btn" class="share-btn share-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </button>
+
+        <!-- Instagram -->
+        <button id="share-instagram-btn" class="share-btn share-instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </button>
+
+        <!-- LinkedIn -->
+        <button id="share-linkedin-btn" class="share-btn share-linkedin">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span>LinkedIn</span>
+        </button>
+
+        <!-- X / Twitter -->
+        <button id="share-x-btn" class="share-btn share-x">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span>Post on X</span>
+        </button>
+
+        <!-- Copy Direct Link -->
+        <button id="copy-link-btn" class="share-btn share-copy" style="grid-column: span 2;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          <span>Copy Page Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
