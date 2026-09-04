@@ -57,10 +57,14 @@ window.toggleMobileNav = function() {
     shadow = document.createElement('div');
     shadow.className = 'mobile-overlay-shadow';
     document.body.appendChild(shadow);
+    shadow.addEventListener('click', window.closeMobileNav);
   }
   if (navMenu) {
-    navMenu.classList.toggle('mobile-visible');
-    shadow.classList.toggle('mobile-visible');
+    const isOpen = navMenu.classList.toggle('mobile-visible');
+    shadow.classList.toggle('mobile-visible', isOpen);
+    document.body.classList.toggle('mobile-nav-open', isOpen);
+    const siteHeader = navMenu.closest('.site-header') || document.querySelector('.site-header');
+    if (siteHeader) siteHeader.classList.toggle('mobile-nav-active', isOpen);
   }
 };
 
@@ -69,6 +73,9 @@ window.closeMobileNav = function() {
   const shadow = document.querySelector('.mobile-overlay-shadow');
   if (navMenu) navMenu.classList.remove('mobile-visible');
   if (shadow) shadow.classList.remove('mobile-visible');
+  document.body.classList.remove('mobile-nav-open');
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) siteHeader.classList.remove('mobile-nav-active');
 };
 
 // ============================================================
@@ -307,7 +314,7 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     const idInput = document.getElementById('loginEmail');
     const passInput = document.getElementById('loginPassword');
-    if (idInput) idInput.value = 'admin@gmail.com';
+    if (idInput) idInput.value = 'contact@titlesquare.in';
     if (passInput) passInput.value = '123';
     return;
   }
@@ -384,12 +391,27 @@ document.addEventListener('click', (e) => {
     const modal = document.getElementById('reportModalLayer');
     if (modal) {
       const expert = reportTrigger.getAttribute('data-expert');
+      const targetCity = reportTrigger.getAttribute('data-city');
       const titleEl = modal.querySelector('.modal-banner h4');
       if (expert && titleEl) {
         titleEl.textContent = `Consult with ${expert}`;
       } else if (titleEl) {
-        titleEl.textContent = 'Get Property Title Report';
+        titleEl.textContent = 'Get Jamabandi Copy';
       }
+
+      // Pre-select city if triggered from city buttons/links
+      if (targetCity) {
+        const citySelect = modal.querySelector('select');
+        if (citySelect) {
+          for (let i = 0; i < citySelect.options.length; i++) {
+            if (citySelect.options[i].value.toLowerCase().includes(targetCity.toLowerCase())) {
+              citySelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+
       modal.classList.add('is-active');
       window.closeMobileNav();
     }
@@ -466,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pass = document.getElementById('loginPassword').value.trim();
       const authErr = document.getElementById('authErrorBox');
 
-      const validIdentifiers = ['admin@gmail.com', 'admin', '9876543210', '+919876543210'];
+      const validIdentifiers = ['contact@titlesquare.in', '9871761798', '+919871761798', 'admin@gmail.com', 'admin', '9876543210', '+919876543210'];
 
       if (validIdentifiers.includes(identifier) && pass === '123') {
         sessionStorage.setItem('titleSquare_user', identifier);
@@ -474,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'dashboard.html';
       } else {
         if (authErr) {
-          authErr.textContent = 'Invalid credentials. Please enter Mobile: 9876543210, Email: admin@gmail.com, or Username: admin with Password: 123';
+          authErr.textContent = 'Invalid credentials. Please enter Mobile: 9871761798, Email: contact@titlesquare.in, or Username: admin with Password: 123';
           authErr.style.display = 'block';
         }
       }
@@ -606,4 +628,23 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlotInput();
     });
   });
+
+  // Metro Cities Grid "Load More" functionality
+  initCitiesLoadMore();
 });
+
+// Load more cities functionality
+function initCitiesLoadMore() {
+  const loadMoreBtn = document.getElementById('loadMoreCitiesBtn');
+  const hiddenCards = document.querySelectorAll('.metro-city-card.city-hidden');
+  if (!loadMoreBtn || hiddenCards.length === 0) return;
+
+  loadMoreBtn.addEventListener('click', function() {
+    hiddenCards.forEach(card => {
+      card.classList.remove('city-hidden');
+      card.style.display = 'flex';
+      card.style.animation = 'fadeIn 0.35s ease';
+    });
+    loadMoreBtn.style.display = 'none';
+  });
+}

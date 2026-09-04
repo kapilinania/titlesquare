@@ -12,6 +12,26 @@
    TABLET & MOBILE NAVIGATION (max 991px)
    ============================================================ */
 @media (max-width: 991px) {
+  /* Prevent background scrolling when mobile drawer is open */
+  body.mobile-nav-open {
+    overflow: hidden;
+  }
+
+  /* Raise header above overlay so drawer is never blurred or dimmed by overlay shadow */
+  .site-header:has(.nav-menu.mobile-visible),
+  body.mobile-nav-open .site-header,
+  .site-header.mobile-nav-active {
+    z-index: 2500 !important;
+  }
+
+  /* Hide floating widgets when mobile menu is open to prevent overlapping */
+  body.mobile-nav-open .quick-check-widget,
+  body.mobile-nav-open .quick-check-reopen-pill {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
   /* Nav becomes a full-height slide-over drawer */
   .nav-menu {
     position: fixed;
@@ -29,7 +49,7 @@
     gap: 0;
     box-shadow: 8px 0 35px rgba(0, 21, 43, 0.25);
     transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2500;
+    z-index: 2501;
     overflow-y: auto;
     border-right: 1.5px solid var(--border);
   }

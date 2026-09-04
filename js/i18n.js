@@ -13,8 +13,8 @@ const translations = {
     "nav.portalLogin": "Portal Login",
     "nav.dashboard": "Audit Dashboard",
     "top.cities": "Delhi NCR & Guwahati",
-    "top.call": "+91 98765 43210",
-    "top.email": "support@titlesquare.in",
+    "top.call": "+91 98717 61798",
+    "top.email": "contact@titlesquare.in",
 
     // Hero Section
     "hero.eyebrow": "Advocate-Verified Property Due Diligence",
@@ -190,7 +190,10 @@ const translations = {
     "footer.aRegister": "Create Free Account",
     "footer.aDashboard": "Audit Dashboard (Demo)",
     "footer.aArticles": "Know the Law (Articles)",
+    "footer.aBlog": "Blog & Articles",
     "footer.aCities": "Operational Cities Hub",
+    "footer.hCitiesCoverage": "Operational Metro Cities Due Diligence Coverage",
+    "footer.viewAllCities": "View All Cities & Jurisdictions →",
     "footer.hChamber": "Registered Chamber",
     "footer.chamberName": "TITLE SQUARE",
     "footer.chamberAddr": "Flat No. 5F, B Block, Royal Residency, Azara SOS Road (Opp. Guwahati Int. Airport), Guwahati, Assam — 781017",
@@ -198,7 +201,7 @@ const translations = {
     "footer.rights": "© 2026 Title Square. All rights reserved. Registered Chamber: Royal Residency, Azara, Guwahati.",
     "footer.disclaimer": "Legal Disclaimer",
     "footer.privacy": "Privacy Policy",
-    "footer.demoCred": "Demo Dashboard (admin@gmail.com / 123)",
+    "footer.demoCred": "Demo Dashboard (contact@titlesquare.in / 123)",
 
     // Quick Check Widget
     "qc.title": "Quick Check Title Square",
@@ -220,7 +223,7 @@ const translations = {
     "auth.fullName": "Full Name",
     "auth.namePlaceholder": "Advocate / Buyer Name",
     "auth.mobile": "Mobile Number",
-    "auth.mobilePlaceholder": "9876543210",
+    "auth.mobilePlaceholder": "9871761798",
     "auth.email": "Email Address",
     "auth.emailPlaceholder": "name@domain.com",
     "auth.pass": "Set Password",
@@ -228,25 +231,25 @@ const translations = {
     "auth.btnCreate": "Create Account",
     "auth.already": "Already Have An Account? ",
     "auth.idLabel": "Mobile No / Email or Username",
-    "auth.idPlaceholder": "admin@gmail.com / 9876543210 / admin",
+    "auth.idPlaceholder": "contact@titlesquare.in / 9871761798 / admin",
     "auth.passLabel": "Password",
     "auth.btnSign": "Sign In to Dashboard",
     "auth.demoFill": "Auto Fill",
-    "auth.demoHint": "Demo Portal: admin@gmail.com | 9876543210 | 123",
+    "auth.demoHint": "Demo Portal: contact@titlesquare.in | 9871761798 | 123",
     "auth.dontHave": "Don't Have An Account? ",
 
     // Sticky Bottom Mobile Nav
     "m.home": "Home",
     "m.services": "Services",
-    "m.report": "Get Report",
+    "m.report": "Get Jamabandi",
     "m.cities": "Cities",
     "m.contact": "Contact",
 
     // Report Lead Modal
-    "modal.title": "Get Property Title Report",
+    "modal.title": "Get Jamabandi Copy",
     "modal.sub": "Advocate-verified report delivered on WhatsApp",
     "modal.waOptin": "Send updates on WhatsApp",
-    "modal.btn": "Get My Free Report"
+    "modal.btn": "Get My Free Jamabandi Copy"
   },
 
   hi: {
@@ -262,8 +265,8 @@ const translations = {
     "nav.portalLogin": "पोर्टल लॉगिन",
     "nav.dashboard": "ऑडिट डैशबोर्ड",
     "top.cities": "दिल्ली एनसीआर और गुवाहाटी",
-    "top.call": "+91 98765 43210",
-    "top.email": "support@titlesquare.in",
+    "top.call": "+91 98717 61798",
+    "top.email": "contact@titlesquare.in",
 
     // Hero Section
     "hero.eyebrow": "अधिवक्ता-सत्यापित संपत्ति कानूनी जांच",
@@ -439,7 +442,10 @@ const translations = {
     "footer.aRegister": "निःशुल्क खाता बनाएं",
     "footer.aDashboard": "ऑडिट डैशबोर्ड (डेमो)",
     "footer.aArticles": "कानूनी जानकारी (लेख)",
+    "footer.aBlog": "ब्लॉग और लेख",
     "footer.aCities": "सक्रिय शहर केंद्र",
+    "footer.hCitiesCoverage": "सक्रिय मेट्रो शहर कानूनी जांच कवरेज",
+    "footer.viewAllCities": "सभी शहर और क्षेत्राधिकार देखें →",
     "footer.hChamber": "पंजीकृत कार्यालय",
     "footer.chamberName": "टाइटल स्क्वायर",
     "footer.chamberAddr": "फ्लैट नं. 5F, बी ब्लॉक, रॉयल रेजीडेंसी, अज़ारा एसओएस रोड (गुवाहाटी अंतरराष्ट्रीय हवाई अड्डे के सामने), गुवाहाटी, असम — 781017",
@@ -447,7 +453,7 @@ const translations = {
     "footer.rights": "© 2026 टाइटल स्क्वायर। सर्वाधिकार सुरक्षित। पंजीकृत कार्यालय: रॉयल रेजीडेंसी, अज़ारा, गुवाहाटी।",
     "footer.disclaimer": "कानूनी अस्वीकरण",
     "footer.privacy": "गोपनीयता नीति",
-    "footer.demoCred": "डेमो डैशबोर्ड (admin@gmail.com / 123)",
+    "footer.demoCred": "डेमो डैशबोर्ड (contact@titlesquare.in / 123)",
 
     // Quick Check Widget
     "qc.title": "टाइटल स्क्वायर त्वरित जांच (Quick Check)",
@@ -469,7 +475,7 @@ const translations = {
     "auth.fullName": "पूरा नाम",
     "auth.namePlaceholder": "वकील / खरीदार का नाम",
     "auth.mobile": "मोबाइल नंबर",
-    "auth.mobilePlaceholder": "9876543210",
+    "auth.mobilePlaceholder": "9871761798",
     "auth.email": "ईमेल पता",
     "auth.emailPlaceholder": "name@domain.com",
     "auth.pass": "पासवर्ड बनाएं",
@@ -477,25 +483,25 @@ const translations = {
     "auth.btnCreate": "खाता बनाएं",
     "auth.already": "क्या पहले से खाता है? ",
     "auth.idLabel": "मोबाइल नंबर / ईमेल या यूज़रनेम",
-    "auth.idPlaceholder": "admin@gmail.com / 9876543210 / admin",
+    "auth.idPlaceholder": "contact@titlesquare.in / 9871761798 / admin",
     "auth.passLabel": "पासवर्ड",
     "auth.btnSign": "डैशबोर्ड में लॉग इन करें",
     "auth.demoFill": "डेमो भरें",
-    "auth.demoHint": "डेमो पोर्टल: admin@gmail.com | 9876543210 | 123",
+    "auth.demoHint": "डेमो पोर्टल: contact@titlesquare.in | 9871761798 | 123",
     "auth.dontHave": "क्या आपके पास खाता नहीं है? ",
 
     // Sticky Bottom Mobile Nav
     "m.home": "होम",
     "m.services": "सेवाएं",
-    "m.report": "रिपोर्ट प्राप्त करें",
+    "m.report": "जमाबंदी प्राप्त करें",
     "m.cities": "शहर",
     "m.contact": "संपर्क",
 
     // Report Lead Modal
-    "modal.title": "प्रॉपर्टी टाइटल रिपोर्ट प्राप्त करें",
+    "modal.title": "जमाबंदी प्रति प्राप्त करें",
     "modal.sub": "अधिवक्ता-सत्यापित रिपोर्ट व्हाट्सएप पर प्राप्त करें",
     "modal.waOptin": "व्हाट्सएप पर अपडेट भेजें",
-    "modal.btn": "मेरी मुफ्त रिपोर्ट प्राप्त करें"
+    "modal.btn": "मेरी मुफ्त जमाबंदी प्रति प्राप्त करें"
   }
 };
 
