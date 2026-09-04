@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b48"/>
+      <stop offset="100%" stop-color="#1b4d79"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f2b48" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Logo Icon Container (Square Shield with Property Geometric Accent) -->
+  <g transform="translate(10, 10)">
+    <!-- Outer Square Badge with rounded corners -->
+    <rect x="0" y="0" width="60" height="60" rx="14" fill="url(#shieldGrad)" filter="url(#subtleShadow)"/>
+    
+    <!-- Outer Gold Border Highlight -->
+    <rect x="1.5" y="1.5" width="57" height="57" rx="12.5" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.6"/>
+    
+    <!-- Roof / Shield Crest Shape -->
+    <path d="M30 14L46 25V39C46 47.5 39.5 52.5 30 55C20.5 52.5 14 47.5 14 39V25L30 14Z" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Legal Title Document / Checkmark inside Crest -->
+    <path d="M30 22L40 29.5V38C40 43.5 35.8 47.2 30 49C24.2 47.2 20 43.5 20 38V29.5L30 22Z" fill="url(#goldGrad)" fill-opacity="0.25"/>
+    
+    <path d="M25 35L29 39L36 30" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Small 4-Square Legal Grid Dot -->
+    <rect x="27" y="18" width="6" height="3" rx="1" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(82, 45)">
+    <!-- TITLE -->
+    <text x="0" y="0" font-family="'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif" font-size="28" font-weight="800" fill="#0f2b48" letter-spacing="-0.5">
+      TITLE<tspan fill="#d97706" font-weight="800">SQUARE</tspan>
+    </text>
+    <!-- Tagline -->
+    <text x="1" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#64748b" letter-spacing="1.2">
+      PROPERTY TITLE &amp; LEGAL DUE DILIGENCE
+    </text>
+  </g>
+</svg>
