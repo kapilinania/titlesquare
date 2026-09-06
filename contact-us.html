@@ -43,28 +43,164 @@
       </a>
       <nav class="nav-menu" id="navMenu">
         <div class="mobile-drawer-header">
-          <img src="assets/logo.svg" alt="Title Square" class="brand-logo-img" style="height: 32px;">
+          <div class="drawer-header-left">
+            <img src="assets/logo.svg" alt="Title Square" class="brand-logo-img" style="height: 30px;">
+            <span class="drawer-verified-tag">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1 14.5l-3.5-3.5 1.41-1.41L11 13.67l5.59-5.59L18 9.5l-7 7z"/></svg>
+              High Court Verified
+            </span>
+          </div>
           <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close Menu">&times;</button>
         </div>
-        <div class="mobile-drawer-links">
-          <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
-          <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
-          <a href="know-the-law.html" class="nav-link" data-i18n="nav.knowLaw">Know the Law</a>
-          <a href="cities.html" class="nav-link" data-i18n="nav.cities">Cities</a>
-          <a href="about-us.html" class="nav-link" data-i18n="nav.about">About Us</a>
-          <a href="contact-us.html" class="nav-link active" data-i18n="nav.contact">Contact Us</a>
+
+        <div class="drawer-consult-card">
+          <div class="dcc-top">
+            <div class="dcc-badge">
+              <span class="dcc-badge-pulse"></span>
+              Free Quick Check
+            </div>
+            <span class="dcc-deliv">24-48 Hr Express</span>
+          </div>
+          <div class="dcc-title">Instant Jamabandi &amp; Title Check</div>
+          <p class="dcc-desc">Direct Sub-Registrar &amp; revenue circle scrutiny before property deals.</p>
+          <button type="button" class="dcc-btn open-modal-trigger">
+            <span>Check My Property Now</span>
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
+
+        <div class="drawer-section-label">Navigation Menu</div>
+        <div class="mobile-drawer-links">
+          <a href="index.html" class="nav-link">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.home">Home</span>
+              <span class="nav-link-sub">Overview &amp; verified search</span>
+            </span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="services.html" class="nav-link">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.services">Services</span>
+              <span class="nav-link-sub">30-Year Title Search &amp; Mutation</span>
+            </span>
+            <span class="drawer-badge badge-pop">Popular</span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="know-the-law.html" class="nav-link">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.knowLaw">Know the Law</span>
+              <span class="nav-link-sub">Assam &amp; Delhi Property Acts</span>
+            </span>
+            <span class="drawer-badge badge-legal">Guides</span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="cities.html" class="nav-link">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.cities">Cities</span>
+              <span class="nav-link-sub">Delhi NCR &amp; Guwahati Jurisdictions</span>
+            </span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="about-us.html" class="nav-link">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.about">About Us</span>
+              <span class="nav-link-sub">High Court Advocates &amp; Chamber Team</span>
+            </span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+
+          <a href="contact-us.html" class="nav-link active">
+            <span class="nav-link-icon-wrap">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            <span class="nav-link-content">
+              <span class="nav-link-title" data-i18n="nav.contact">Contact Us</span>
+              <span class="nav-link-sub">Chamber Visits &amp; Direct Line</span>
+            </span>
+            <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="drawer-section-label">Quick Legal Utilities</div>
+        <div class="drawer-quick-grid">
+          <a href="javascript:void(0)" class="drawer-quick-tile open-modal-trigger" data-city="Guwahati">
+            <div class="dqt-icon-box dqt-icon-green">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="dqt-text">
+              <span class="dqt-label">Jamabandi</span>
+              <span class="dqt-sub">Revenue Patta</span>
+            </div>
+          </a>
+
+          <a href="javascript:void(0)" class="drawer-quick-tile open-modal-trigger" data-city="Delhi NCR">
+            <div class="dqt-icon-box dqt-icon-navy">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <div class="dqt-text">
+              <span class="dqt-label">Title Search</span>
+              <span class="dqt-sub">30-Yr Archival</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/919871761798?text=Hello%20Title%20Square%20Legal%20Team,%20I%20need%20property%20due%20diligence%20assistance." target="_blank" rel="noopener" class="drawer-quick-tile">
+            <div class="dqt-icon-box dqt-icon-wa">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.79 14.07c-.24.68-1.4 1.26-1.95 1.32-.51.06-1.17.09-3.37-.8-2.58-1.04-4.22-3.66-4.35-3.83-.13-.17-1.03-1.37-1.03-2.62 0-1.25.65-1.86.88-2.11.23-.25.5-.32.67-.32.17 0 .34 0 .49.01.15.01.37-.06.58.44.22.52.74 1.82.81 1.95.07.13.11.29.02.46-.09.18-.14.28-.27.44-.13.16-.28.36-.4.49-.13.13-.27.27-.12.52.16.25.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.16 1.33.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.37-.23.62-.14.25.09 1.58.74 1.85.88.27.14.45.2.52.31.06.12.06.68-.18 1.36z"/></svg>
+            </div>
+            <div class="dqt-text">
+              <span class="dqt-label">WhatsApp</span>
+              <span class="dqt-sub">Advocate Desk</span>
+            </div>
+          </a>
+
+          <a href="tel:+919871761798" class="drawer-quick-tile">
+            <div class="dqt-icon-box dqt-icon-amber">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div class="dqt-text">
+              <span class="dqt-label">Helpline</span>
+              <span class="dqt-sub">+91 98717 61798</span>
+            </div>
+          </a>
+        </div>
+
         <div class="mobile-drawer-actions">
-          <button type="button" class="btn-auth-red open-auth-btn" data-tab="register" onclick="openAuth('register')" style="width: 100%; justify-content: center; padding: 11px; margin-bottom: 8px;" data-i18n="nav.loginRegister">
+          <button type="button" class="btn-auth-red open-auth-btn" data-tab="register" style="width: 100%; justify-content: center; padding: 11.5px; margin-bottom: 8px;" data-i18n="nav.loginRegister">
             Login / Register
           </button>
-          <button type="button" class="btn-auth-navy open-auth-btn" data-tab="login" onclick="openAuth('login')" style="width: 100%; justify-content: center; padding: 11px; margin-bottom: 12px;">
+          <button type="button" class="btn-auth-navy open-auth-btn" data-tab="login" style="width: 100%; justify-content: center; padding: 11px; margin-bottom: 8px;">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-            <span data-i18n="nav.portalLogin">Portal Login</span>
+            <span data-i18n="nav.portalLogin">Client Portal Login</span>
           </button>
-          <div style="font-size: 11.5px; color: var(--text-mid); line-height: 1.5;">
-            <div data-i18n="top.cities">Delhi NCR &amp; Guwahati</div>
-            <a href="tel:+919871761798" style="color: var(--navy); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 2px;">+91 98717 61798</a>
+
+          <div class="drawer-chamber-info">
+            <div class="dci-hours">
+              <span class="dci-dot"></span>
+              <span>Chamber Hours: Mon–Sat 10:00 AM – 7:30 PM</span>
+            </div>
+            <div class="dci-loc">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Delhi NCR &bull; Royal Residency, Azara, Guwahati</span>
+            </div>
           </div>
         </div>
       </nav>
@@ -547,31 +683,31 @@
           <a href="cities.html" class="footer-cities-hub-link" data-i18n="footer.viewAllCities">View All Cities &amp; Jurisdictions &rarr;</a>
         </div>
         <div class="footer-cities-links-wrap">
-          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Delhi NCR" title="Click to verify Delhi NCR Property"><span class="footer-city-dot"></span>Delhi NCR <span class="footer-city-live-pill">Live</span></a>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Delhi NCR" title="Click to verify Delhi NCR Property">Delhi NCR</a>
           <span class="footer-city-divider">|</span>
-          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Guwahati" title="Click to verify Guwahati Assam Property"><span class="footer-city-dot"></span>Guwahati <span class="footer-city-live-pill">Live</span></a>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Guwahati" title="Click to verify Guwahati Assam Property">Guwahati</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Mumbai MMR verification launching soon">Mumbai MMR <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Mumbai MMR</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Bengaluru verification launching soon">Bengaluru <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Bengaluru</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Hyderabad verification launching soon">Hyderabad <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Hyderabad</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Kolkata verification launching soon">Kolkata <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Kolkata</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Pune verification launching soon">Pune <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Pune</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Chennai verification launching soon">Chennai <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Chennai</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Ahmedabad verification launching soon">Ahmedabad <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Ahmedabad</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Chandigarh Tricity verification launching soon">Chandigarh Tricity <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Chandigarh Tricity</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Jaipur verification launching soon">Jaipur <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Jaipur</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Lucknow verification launching soon">Lucknow <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Lucknow</span>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city" title="Kochi verification launching soon">Kochi <span class="footer-city-soon-pill">Soon</span></span>
+          <span class="footer-city-tag is-disabled-city">Kochi</span>
         </div>
       </div>
 
