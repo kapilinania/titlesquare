@@ -199,7 +199,7 @@
             </div>
             <div class="dci-loc">
               <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span>Delhi NCR &bull; Royal Residency, Azara, Guwahati</span>
+              <span>Tis Hazari Courts, Delhi &bull; Royal Residency, Guwahati</span>
             </div>
           </div>
         </div>
@@ -241,7 +241,7 @@
   </section>
 
   <!-- MAIN CONTACT & HEADQUARTERS SECTION -->
-  <section class="section-white">
+  <section class="section-white" id="headquarters-chamber">
     <div class="container">
 
       <!-- Official Headquarters Card -->
@@ -292,21 +292,249 @@
           </div>
         </div>
 
-        <!-- Quick Direct Actions -->
-        <div class="hq-actions-row">
-          <a href="https://wa.me/919871761798?text=Hello%20Title%20Square,%20I%20need%20legal%20verification%20for%20my%20property." target="_blank" class="btn btn-navy" style="background: #25d366; border-color: #25d366; color: #ffffff;">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
-            Chat on WhatsApp (+91 98717 61798)
-          </a>
-          <a href="tel:+919871761798" class="btn btn-navy">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Legal Desk Directly
-          </a>
-          <a href="https://maps.google.com/?q=Royal+Residency+Azara+Guwahati" target="_blank" class="btn btn-outline">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Get Directions to Chamber
-          </a>
+        <!-- Interactive Map & Chamber Navigation Grid -->
+        <div class="hq-interactive-grid" id="chamber-map">
+          <!-- Left Column: Chamber Details & Visiting Guide -->
+          <div class="hq-chamber-info-card">
+            <div>
+              <div class="hq-chamber-subtitle">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                Physical Chamber &amp; Legal Desk
+              </div>
+
+              <div class="hq-full-address-box">
+                <div class="hq-full-address-text">
+                  Flat No. 5F, B Block, Royal Residency, Azara SOS Road (Opp. Guwahati International Airport), Guwahati, Assam — 781017
+                </div>
+                <button type="button" class="btn-copy-address" id="copyChamberAddressBtn" onclick="copyChamberAddress()">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  <span id="copyBtnText">Copy Chamber Address</span>
+                </button>
+              </div>
+
+              <!-- Transit & Proximity Landmarks -->
+              <div class="hq-transit-list">
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">✈️</span>
+                  <div>
+                    <span class="hq-transit-title">LGBI Airport</span>
+                    <span class="hq-transit-sub">800m &bull; 2 Mins Drive / Walk</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🚆</span>
+                  <div>
+                    <span class="hq-transit-title">Kamakhya Junction</span>
+                    <span class="hq-transit-sub">~14 km &bull; 20 Mins via NH27</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🏛️</span>
+                  <div>
+                    <span class="hq-transit-title">Dispur &amp; Circle Desk</span>
+                    <span class="hq-transit-sub">Direct Kamrup Registry Links</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🅿️</span>
+                  <div>
+                    <span class="hq-transit-title">Visitor Parking</span>
+                    <span class="hq-transit-sub">Free Reserved Client Parking</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chamber Note -->
+              <div class="hq-visiting-note">
+                <strong>Chamber Advisory:</strong> Prior intimation via WhatsApp or direct call is recommended to ensure the relevant High Court advocate is available for physical file review.
+              </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="hq-chamber-actions">
+              <a href="https://wa.me/919871761798?text=Hello%20Title%20Square,%20I%20am%20visiting%20your%20Royal%20Residency%20chamber%20for%20property%20verification." target="_blank" rel="noopener" class="btn btn-navy" style="background: #25d366; border-color: #25d366; color: #ffffff; flex: 1; justify-content: center;">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+                WhatsApp Desk
+              </a>
+              <a href="tel:+919871761798" class="btn btn-navy" style="flex: 1; justify-content: center;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                Call Legal Desk
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Map Frame -->
+          <div class="hq-map-wrapper">
+            <!-- Map Header -->
+            <div class="hq-map-header">
+              <div class="hq-map-header-left">
+                <span class="hq-live-dot"></span>
+                <span>Title Square &bull; Royal Residency Chamber</span>
+              </div>
+              <span class="badge-google-verified">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Google Maps Verified
+              </span>
+            </div>
+
+            <!-- Responsive Google Maps Embed -->
+            <div class="hq-map-frame">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.6360525053956!2d91.595573!3d26.1107966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a41779596d953%3A0x176a66947062268b!2sTitle%20Square!5e0!3m2!1sen!2sin!4v1788800602785!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Title Square Google Maps Location">
+              </iframe>
+            </div>
+
+            <!-- Interactive Toolbar -->
+            <div class="hq-map-toolbar">
+              <div class="hq-map-toolbar-actions">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Title+Square,Royal+Residency,Azara,Guwahati" target="_blank" rel="noopener" class="map-action-btn map-action-primary">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                  Get Directions
+                </a>
+                <a href="https://www.google.com/maps/place/Title+Square/@26.1107966,91.595573,17z" target="_blank" rel="noopener" class="map-action-btn map-action-secondary">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                  Open in Maps
+                </a>
+                <button type="button" class="map-action-btn map-action-secondary" id="shareLocationBtn" onclick="shareChamberLocation()">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                  Share Location
+                </button>
+              </div>
+              <span class="map-coords-badge">
+                <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                26.1108° N, 91.5956° E
+              </span>
+            </div>
+          </div>
         </div>
+
+      </div>
+
+      <!-- Official Delhi NCR Chamber Card -->
+      <div class="hq-featured-card" id="delhi-chamber" style="margin-top: 36px; border-top: 4px solid var(--navy);">
+        <div class="hq-top-bar">
+          <div>
+            <div class="hq-tag-group" style="margin-bottom: 8px;">
+              <span class="hq-primary-badge" style="background: var(--navy); color: #fff;">Delhi NCR Chamber</span>
+              <span class="hq-airport-badge" style="background: #fef2f2; color: #991b1b; border-color: #fecaca;">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                Tis Hazari Court Complex (Western Wing)
+              </span>
+            </div>
+            <h2 class="hq-title">TITLE SQUARE LAW FIRM</h2>
+            <div class="hq-address-lead">
+              Chamber no. 396, Western Wing, Tis Hazari Courts
+            </div>
+            <div class="hq-address-sub">
+              Delhi — 110054
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <span class="badge-active-hub" style="font-size: 12px; padding: 4px 12px; background: rgba(0, 34, 68, 0.08); color: var(--navy); border: 1px solid var(--navy);">Chamber Open Mon–Sat</span>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">10:00 AM – 6:30 PM IST</div>
+          </div>
+        </div>
+
+        <!-- Services Ribbon -->
+        <div class="hq-services-row">
+          <span class="hq-services-label">Authorised Practice &amp; Services Undertaken:</span>
+          <div class="hq-services-badges">
+            <span class="hq-service-pill">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Delhi NCR Sub-Registrar Searches (22+ SROs)
+            </span>
+            <span class="hq-service-pill">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              DDA Leasehold to Freehold Conveyance
+            </span>
+            <span class="hq-service-pill">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Tis Hazari &amp; Delhi High Court Litigation
+            </span>
+            <span class="hq-service-pill" style="background: #eff6ff; border-color: #bfdbfe; color: #1e40af;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              Bank Loan Documentation &amp; Title Verification
+            </span>
+          </div>
+        </div>
+
+        <!-- Chamber Details & Transit Guide -->
+        <div class="hq-interactive-grid" style="grid-template-columns: 1fr; margin-top: 20px;">
+          <div class="hq-chamber-info-card" style="border: 1.5px solid var(--border);">
+            <div>
+              <div class="hq-chamber-subtitle">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                National Capital Legal Chamber &amp; Litigation Desk
+              </div>
+
+              <div class="hq-full-address-box">
+                <div class="hq-full-address-text">
+                  Chamber no. 396, Western Wing, Tis Hazari Courts, Delhi — 110054
+                </div>
+                <button type="button" class="btn-copy-address" id="copyDelhiChamberAddressBtn" onclick="copyDelhiChamberAddress()">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                  <span id="copyDelhiBtnText">Copy Delhi Chamber Address</span>
+                </button>
+              </div>
+
+              <!-- Transit & Proximity Landmarks -->
+              <div class="hq-transit-list">
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🚇</span>
+                  <div>
+                    <span class="hq-transit-title">Tis Hazari Metro (Red Line)</span>
+                    <span class="hq-transit-sub">150m &bull; Gate No. 2 Access (2 Mins Walk)</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🚌</span>
+                  <div>
+                    <span class="hq-transit-title">Kashmere Gate ISBT &amp; Metro</span>
+                    <span class="hq-transit-sub">~1.5 km &bull; Interchange (Yellow, Violet, Red Lines)</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">⚖️</span>
+                  <div>
+                    <span class="hq-transit-title">Delhi High Court Panel</span>
+                    <span class="hq-transit-sub">Direct Scrutiny &amp; Appellate Link</span>
+                  </div>
+                </div>
+                <div class="hq-transit-item">
+                  <span class="hq-transit-icon">🅿️</span>
+                  <div>
+                    <span class="hq-transit-title">Court Visitor Access</span>
+                    <span class="hq-transit-sub">Western Wing Advocates Block Entry</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hq-visiting-note">
+                <strong>Delhi Chamber Advisory:</strong> For in-person chamber consultations regarding Delhi NCR properties (DDA, MCD, Sub-Registrar searches or court litigation), prior appointment via WhatsApp or call is recommended to ensure courtroom advocates are present at the chamber desk.
+              </div>
+            </div>
+
+            <!-- Action CTAs -->
+            <div class="hq-chamber-actions" style="margin-top: 16px;">
+              <a href="https://wa.me/919871761798?text=Hello%20Title%20Square,%20I%20want%20to%20consult%20at%20your%20Tis%20Hazari%20Courts%20Delhi%20Chamber." target="_blank" rel="noopener" class="btn btn-navy" style="background: #25d366; border-color: #25d366; color: #ffffff; flex: 1; justify-content: center;">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+                WhatsApp Delhi Desk
+              </a>
+              <a href="tel:+919871761798" class="btn btn-navy" style="flex: 1; justify-content: center;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                Call Legal Desk
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -389,7 +617,7 @@
   </section>
 
   <!-- INTERACTIVE SECTION 2: BOOK AN ADVOCATE CONSULTATION SLOT -->
-  <section class="section-white">
+  <section class="section-white" id="consultation-scheduler">
     <div class="container">
       <div class="section-title-wrap">
         <span class="section-label">Chamber &amp; Virtual Desk</span>
@@ -418,6 +646,10 @@
               <div class="mode-btn">
                 💬 WhatsApp Video Scrutiny
               </div>
+            </div>
+            <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 6px; display: flex; align-items: center; gap: 4px;">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Opp. Guwahati Airport (2 Mins). <a href="#chamber-map" style="color: var(--navy); font-weight: 700; text-decoration: underline;">View Chamber on Interactive Map &uarr;</a>
             </div>
           </div>
 
@@ -469,9 +701,31 @@
             </div>
           </div>
 
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div class="field-wrap">
+              <label>Village / Locality</label>
+              <input type="text" name="village" class="field-control" placeholder="Enter Village / Area">
+            </div>
+            <div class="field-wrap">
+              <label>PIN Code</label>
+              <input type="text" name="pincode" class="field-control" pattern="[0-9]{6}" placeholder="6-digit PIN">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div class="field-wrap">
+              <label>Dag / Khasra / Survey No.</label>
+              <input type="text" class="field-control" placeholder="e.g. 142/5">
+            </div>
+            <div class="field-wrap">
+              <label>Patta / Khata / Khatiyan No.</label>
+              <input type="text" class="field-control" placeholder="e.g. 88/B">
+            </div>
+          </div>
+
           <div class="field-wrap">
-            <label>Property Location &amp; Brief Query</label>
-            <input type="text" class="field-control" placeholder="e.g., Guwahati Dispur plot purchase / Pan-India home loan title search / Azara mutation" required>
+            <label>Legal Query / Service Required</label>
+            <input type="text" class="field-control" placeholder="e.g., Jamabandi verification, Title search, Deed drafting, Bank loan TSR" required>
           </div>
 
           <button type="submit" class="btn btn-navy" style="width: 100%; padding: 14px; font-size: 15px; margin-top: 8px;">
@@ -646,16 +900,27 @@
 
         <!-- Col 4: Registered Office Details with Icons -->
         <div>
-          <h4 class="footer-heading">Registered Chamber</h4>
+          <h4 class="footer-heading">Registered Chambers</h4>
           <div class="footer-contact-block">
-            <div class="footer-office">
-              <strong>TITLE SQUARE</strong>
-              <span style="display: flex; align-items: flex-start; gap: 6px; margin-top: 4px;">
+            <div class="footer-office" style="margin-bottom: 12px;">
+              <strong style="color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 2px;">Delhi Chamber</strong>
+              <span style="display: flex; align-items: flex-start; gap: 6px;">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--gold); flex-shrink: 0; margin-top: 3px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Flat No. 5F, B Block, Royal Residency, Azara SOS Road (Opp. Guwahati Int. Airport), Guwahati, Assam — 781017
+                <a href="contact-us.html#delhi-chamber" style="color: inherit; text-decoration: none;">
+                  Chamber no. 396, Western Wing, Tis Hazari Courts, Delhi — 110054
+                </a>
               </span>
             </div>
-            <div class="footer-contact-links">
+            <div class="footer-office">
+              <strong style="color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 2px;">Guwahati Registered HQ</strong>
+              <span style="display: flex; align-items: flex-start; gap: 6px;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--gold); flex-shrink: 0; margin-top: 3px;"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <a href="contact-us.html#headquarters-chamber" style="color: inherit; text-decoration: none;">
+                  Royal Residency, Azara (Opp. Airport), Guwahati, Assam — 781017
+                </a>
+              </span>
+            </div>
+            <div class="footer-contact-links" style="margin-top: 10px;">
               <a href="tel:+919871761798" style="display: flex; align-items: center; gap: 6px;">
                 <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--gold);"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 +91 98717 61798
@@ -678,41 +943,91 @@
         <div class="footer-cities-header">
           <div class="footer-cities-title">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span data-i18n="footer.hCitiesCoverage">Operational Metro Cities Due Diligence Coverage</span>
+            <span data-i18n="footer.hCitiesCoverage">All Indian State Capitals &amp; Metro Cities Due Diligence Coverage</span>
           </div>
-          <a href="cities.html" class="footer-cities-hub-link" data-i18n="footer.viewAllCities">View All Cities &amp; Jurisdictions &rarr;</a>
+          <a href="cities.html#capitals-directory" class="footer-cities-hub-link" data-i18n="footer.viewAllCities">View All Capitals &amp; Jurisdictions &rarr;</a>
         </div>
         <div class="footer-cities-links-wrap">
           <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Delhi NCR" title="Click to verify Delhi NCR Property">Delhi NCR</a>
           <span class="footer-city-divider">|</span>
-          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Guwahati" title="Click to verify Guwahati Assam Property">Guwahati</a>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Guwahati" title="Click to verify Guwahati (Assam) Property">Guwahati</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Mumbai MMR</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Mumbai" title="Click to verify Mumbai Property">Mumbai MMR</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Bengaluru</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Bengaluru" title="Click to verify Bengaluru Property">Bengaluru</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Hyderabad</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Hyderabad" title="Click to verify Hyderabad Property">Hyderabad</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Kolkata</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Kolkata" title="Click to verify Kolkata Property">Kolkata</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Pune</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Chennai" title="Click to verify Chennai Property">Chennai</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Chennai</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Jaipur" title="Click to verify Jaipur (Rajasthan) Property">Jaipur</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Ahmedabad</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Lucknow" title="Click to verify Lucknow (Uttar Pradesh) Property">Lucknow</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Chandigarh Tricity</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Chandigarh" title="Click to verify Chandigarh Property">Chandigarh</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Jaipur</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Bhopal" title="Click to verify Bhopal (Madhya Pradesh) Property">Bhopal</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Lucknow</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Patna" title="Click to verify Patna (Bihar) Property">Patna</a>
           <span class="footer-city-divider">|</span>
-          <span class="footer-city-tag is-disabled-city">Kochi</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Bhubaneswar" title="Click to verify Bhubaneswar (Odisha) Property">Bhubaneswar</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Ranchi" title="Click to verify Ranchi (Jharkhand) Property">Ranchi</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Gandhinagar" title="Click to verify Gandhinagar / Ahmedabad Property">Gandhinagar</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Thiruvananthapuram" title="Click to verify Thiruvananthapuram (Kerala) Property">Thiruvananthapuram</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Amaravati" title="Click to verify Amaravati (Andhra Pradesh) Property">Amaravati</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Dehradun" title="Click to verify Dehradun (Uttarakhand) Property">Dehradun</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Raipur" title="Click to verify Raipur (Chhattisgarh) Property">Raipur</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Shimla" title="Click to verify Shimla (Himachal Pradesh) Property">Shimla</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Panaji" title="Click to verify Panaji (Goa) Property">Panaji</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Srinagar" title="Click to verify Srinagar (J&K) Property">Srinagar</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Jammu" title="Click to verify Jammu (J&K) Property">Jammu</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Shillong" title="Click to verify Shillong (Meghalaya) Property">Shillong</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Agartala" title="Click to verify Agartala (Tripura) Property">Agartala</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Imphal" title="Click to verify Imphal (Manipur) Property">Imphal</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Aizawl" title="Click to verify Aizawl (Mizoram) Property">Aizawl</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Kohima" title="Click to verify Kohima (Nagaland) Property">Kohima</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Itanagar" title="Click to verify Itanagar (Arunachal) Property">Itanagar</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Gangtok" title="Click to verify Gangtok (Sikkim) Property">Gangtok</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Port Blair" title="Click to verify Port Blair (A&N) Property">Port Blair</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Puducherry" title="Click to verify Puducherry Property">Puducherry</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Leh" title="Click to verify Leh (Ladakh) Property">Leh</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Daman" title="Click to verify Daman Property">Daman</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Kavaratti" title="Click to verify Kavaratti Property">Kavaratti</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Pune" title="Click to verify Pune Property">Pune</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Ahmedabad" title="Click to verify Ahmedabad Property">Ahmedabad</a>
+          <span class="footer-city-divider">|</span>
+          <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Kochi" title="Click to verify Kochi Property">Kochi</a>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <p>&copy; 2026 Title Square. All rights reserved. Registered Chamber: Royal Residency, Azara, Guwahati.</p>
+        <p>&copy; 2026 Title Square Law Firm. All rights reserved. Registered Chambers: Tis Hazari Courts, Delhi &bull; Royal Residency, Azara, Guwahati.</p>
         <p><a href="know-the-law.html">Legal Disclaimer</a> &bull; <a href="about-us.html">Privacy Policy</a> &bull; <a href="dashboard.html" style="color: var(--gold); font-weight: 700;">Demo Dashboard (contact@titlesquare.in / 123)</a></p>
       </div>
     </div>
@@ -764,13 +1079,78 @@
             <input type="tel" class="field-control" pattern="[0-9]{10}" placeholder="+91 10-digit number" required>
           </div>
           <div class="field-wrap">
-            <label>Service Category</label>
+            <label>Select City / State Capital</label>
             <select class="field-control" required>
-              <option value="Revenue Mutation">Revenue Mutation (Jamabandi/Patta)</option>
-              <option value="30-Year Title Search">30-Year Title Search Report</option>
-              <option value="Deed Registration">Deed Registration &amp; Drafting</option>
-              <option value="Bank Loan Documentation">Bank Loan Documentation (Pan-India)</option>
+              <optgroup label="Headquarters & Metro Chambers">
+                <option value="Delhi NCR" selected>Delhi NCR</option>
+                <option value="Guwahati">Guwahati (Assam Chamber)</option>
+                <option value="Mumbai">Mumbai MMR (Maharashtra)</option>
+                <option value="Bengaluru">Bengaluru (Karnataka)</option>
+                <option value="Hyderabad">Hyderabad (Telangana)</option>
+                <option value="Kolkata">Kolkata (West Bengal)</option>
+                <option value="Chennai">Chennai (Tamil Nadu)</option>
+                <option value="Pune">Pune (Maharashtra)</option>
+              </optgroup>
+              <optgroup label="North India Capitals">
+                <option value="Chandigarh">Chandigarh (Punjab &amp; Haryana)</option>
+                <option value="Jaipur">Jaipur (Rajasthan)</option>
+                <option value="Lucknow">Lucknow (Uttar Pradesh)</option>
+                <option value="Dehradun">Dehradun (Uttarakhand)</option>
+                <option value="Shimla">Shimla (Himachal Pradesh)</option>
+                <option value="Srinagar">Srinagar (Jammu &amp; Kashmir)</option>
+                <option value="Jammu">Jammu (Jammu &amp; Kashmir)</option>
+              </optgroup>
+              <optgroup label="East &amp; North-East Capitals">
+                <option value="Patna">Patna (Bihar)</option>
+                <option value="Bhubaneswar">Bhubaneswar (Odisha)</option>
+                <option value="Ranchi">Ranchi (Jharkhand)</option>
+                <option value="Shillong">Shillong (Meghalaya)</option>
+                <option value="Agartala">Agartala (Tripura)</option>
+                <option value="Gangtok">Gangtok (Sikkim)</option>
+                <option value="Itanagar">Itanagar (Arunachal Pradesh)</option>
+                <option value="Imphal">Imphal (Manipur)</option>
+                <option value="Aizawl">Aizawl (Mizoram)</option>
+                <option value="Kohima">Kohima (Nagaland)</option>
+              </optgroup>
+              <optgroup label="West &amp; Central India Capitals">
+                <option value="Gandhinagar">Gandhinagar / Ahmedabad (Gujarat)</option>
+                <option value="Panaji">Panaji (Goa)</option>
+                <option value="Bhopal">Bhopal (Madhya Pradesh)</option>
+                <option value="Raipur">Raipur (Chhattisgarh)</option>
+              </optgroup>
+              <optgroup label="South India Capitals">
+                <option value="Thiruvananthapuram">Thiruvananthapuram (Kerala)</option>
+                <option value="Amaravati">Amaravati (Andhra Pradesh)</option>
+                <option value="Kochi">Kochi (Kerala)</option>
+              </optgroup>
+              <optgroup label="Union Territory Capitals">
+                <option value="Port Blair">Port Blair (Andaman &amp; Nicobar)</option>
+                <option value="Puducherry">Puducherry (Puducherry UT)</option>
+                <option value="Leh">Leh (Ladakh)</option>
+                <option value="Daman">Daman (DNH &amp; DD)</option>
+                <option value="Kavaratti">Kavaratti (Lakshadweep)</option>
+              </optgroup>
             </select>
+          </div>
+          <div class="modal-grid-2">
+            <div class="field-wrap">
+              <label>Village / Locality</label>
+              <input type="text" name="village" class="field-control" placeholder="Enter Village / Area">
+            </div>
+            <div class="field-wrap">
+              <label>PIN Code</label>
+              <input type="text" name="pincode" class="field-control" pattern="[0-9]{6}" placeholder="6-digit PIN">
+            </div>
+          </div>
+          <div class="modal-grid-2">
+            <div class="field-wrap">
+              <label>Dag / Khasra / Survey No.</label>
+              <input type="text" name="khasra" class="field-control" placeholder="e.g. 142/5">
+            </div>
+            <div class="field-wrap">
+              <label>Patta / Khata / Khatiyan No.</label>
+              <input type="text" name="patta" class="field-control" placeholder="e.g. 88/B">
+            </div>
           </div>
           <div class="wa-optin">
             <span class="wa-optin-txt">

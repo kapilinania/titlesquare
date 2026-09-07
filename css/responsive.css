@@ -670,6 +670,13 @@
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .hq-interactive-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .hq-map-frame {
+    min-height: 350px;
+  }
   .journey-steps-grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
@@ -688,6 +695,24 @@
   }
   .hq-featured-card {
     padding: 20px 16px;
+  }
+  .hq-transit-list {
+    grid-template-columns: 1fr;
+  }
+  .hq-map-frame {
+    min-height: 300px;
+  }
+  .hq-map-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hq-map-toolbar-actions {
+    width: 100%;
+  }
+  .map-action-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
   }
   .estimator-box, .scheduler-box {
     padding: 20px 16px;

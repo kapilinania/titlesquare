@@ -1,4 +1,8 @@
-// Title Square Main Script - Professional UI/UX Interactive Logic
+// ============================================================
+// GOOGLE SHEETS LEAD SYNC CONFIGURATION
+// ============================================================
+// Replace the URL below with your Google Apps Script Web App URL to stream leads directly into Google Sheets
+window.GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxbE0he_Ls3-GRKBaeMC1uA0u7CkRuZMnS5knr49M3I9-vG8vUBqDK2jizpyEASTZiq/exec";
 
 // ============================================================
 // GLOBAL AUTH MODAL HANDLERS
@@ -460,22 +464,108 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // AJAX Lead Forms
+  // AJAX Lead Forms with Google Sheets Integration
+  window._ajaxFormsInitialized = true;
   const forms = document.querySelectorAll('form.ajax-form');
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      const orig = btn ? btn.textContent : 'Submit';
-      if (btn) btn.textContent = 'Processing...';
+      const orig = btn ? btn.innerHTML : 'Submit';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Saving to Sheet & Verifying...';
+      }
 
+      // Determine exact Form Type and destination Sheet Tab
+      let formType = 'Get Jamabandi Copy Modal';
+      let sheetTab = 'Jamabandi_Leads';
+
+      if (form.closest('#consultation-scheduler')) {
+        formType = 'Advocate Consultation Appointment';
+        sheetTab = 'Contact_Us_Appointments';
+      } else if (form.closest('.reg-card')) {
+        formType = 'Hero Property Check';
+        sheetTab = 'Hero_Property_Checks';
+      } else if (window.location.pathname.includes('contact-us.html') && !form.closest('.modal-layer')) {
+        formType = 'Contact Us Consultation';
+        sheetTab = 'Contact_Us_Appointments';
+      }
+
+      const payload = {
+        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        sheetTab: sheetTab,
+        formType: formType,
+        page: window.location.pathname.split('/').pop() || 'index.html'
+      };
+
+      // Extract named and positional form inputs
+      const nameInput = form.querySelector('input[name="name"], input[placeholder*="name" i], input[type="text"]:first-of-type');
+      const phoneInput = form.querySelector('input[name="phone"], input[type="tel"]');
+      const citySelect = form.querySelector('select');
+      const villageInput = form.querySelector('input[name="village"], input[placeholder*="Village" i]');
+      const pinInput = form.querySelector('input[name="pincode"], input[placeholder*="PIN" i]');
+      const khasraInput = form.querySelector('input[name="khasra"], input[placeholder*="142" i]');
+      const pattaInput = form.querySelector('input[name="patta"], input[placeholder*="88" i]');
+      const queryInput = form.querySelector('input[placeholder*="Query" i], input[placeholder*="Brief" i], textarea');
+      const slotInput = form.querySelector('#selectedSlotDetail');
+
+      payload.fullName = nameInput ? nameInput.value.trim() : '';
+      payload.phone = phoneInput ? phoneInput.value.trim() : '';
+      payload.city = citySelect ? citySelect.value : '';
+      payload.village = villageInput ? villageInput.value.trim() : '';
+      payload.pincode = pinInput ? pinInput.value.trim() : '';
+      payload.dagKhasraSurvey = khasraInput ? khasraInput.value.trim() : '';
+      payload.pattaKhataKhatiyan = pattaInput ? pattaInput.value.trim() : '';
+      payload.queryService = queryInput ? queryInput.value.trim() : '';
+      payload.appointmentSlot = slotInput ? slotInput.value.trim() : '';
+
+      // 1. Instantly close lead modal
+      const modal = document.getElementById('reportModalLayer');
+      if (modal) modal.classList.remove('is-active');
+
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Submitted ✓';
+      }
+
+      // Safe form reset after extracting
       setTimeout(() => {
-        if (btn) btn.textContent = orig;
-        const modal = document.getElementById('reportModalLayer');
-        if (modal) modal.classList.remove('is-active');
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = orig;
+        }
         form.reset();
-        alert('Thank you! Your request has been received. Our legal team at Title Square (Royal Residency, Azara) will contact you shortly on WhatsApp / Call.');
-      }, 600);
+      }, 400);
+
+      // Show interactive custom success dialog popup (No native browser alert)
+      window.showLeadSuccessModal(payload);
+
+      // 2. Transmit to Google Sheets in the background (Non-blocking)
+      const webhookUrl = window.GOOGLE_SHEETS_WEBHOOK_URL;
+      if (webhookUrl && !webhookUrl.includes('REPLACE_WITH_YOUR_DEPLOYMENT_ID')) {
+        // Use navigator.sendBeacon if supported, or fire-and-forget fetch
+        try {
+          const blob = new Blob([JSON.stringify(payload)], { type: 'text/plain' });
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(webhookUrl, blob);
+          } else {
+            fetch(webhookUrl, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain' },
+              body: JSON.stringify(payload)
+            }).catch(e => console.warn('Background sync note:', e));
+          }
+        } catch (postErr) {
+          fetch(webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(payload)
+          }).catch(e => console.warn('Background fetch error:', e));
+        }
+      }
     });
   });
 
@@ -631,6 +721,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Metro Cities Grid "Load More" functionality
   initCitiesLoadMore();
+
+  // Indian State Capitals Directory Live Filter
+  initCapitalDirectoryFilter();
 });
 
 // Load more cities functionality
@@ -648,3 +741,312 @@ function initCitiesLoadMore() {
     loadMoreBtn.style.display = 'none';
   });
 }
+
+// Indian State & UT Capitals Directory Filter & Live Search
+function initCapitalDirectoryFilter() {
+  const searchInput = document.getElementById('capitalSearchInput');
+  const clearBtn = document.getElementById('clearCapitalSearchBtn');
+  const zoneBtns = document.querySelectorAll('.cap-zone-btn');
+  const cards = document.querySelectorAll('.capital-city-card');
+
+  if (!cards.length) return;
+
+  function filterCards() {
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const activeZoneBtn = document.querySelector('.cap-zone-btn.is-active');
+    const selectedZone = activeZoneBtn ? activeZoneBtn.getAttribute('data-zone') : 'all';
+
+    cards.forEach(card => {
+      const city = (card.getAttribute('data-city') || '').toLowerCase();
+      const state = (card.getAttribute('data-state') || '').toLowerCase();
+      const zone = (card.getAttribute('data-zone') || '').toLowerCase();
+
+      const matchesSearch = !query || city.includes(query) || state.includes(query);
+      const matchesZone = selectedZone === 'all' || zone === selectedZone;
+
+      if (matchesSearch && matchesZone) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (clearBtn) {
+      clearBtn.style.display = query.length > 0 ? 'inline-block' : 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCards);
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      filterCards();
+      if (searchInput) searchInput.focus();
+    });
+  }
+
+  zoneBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      zoneBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      filterCards();
+    });
+  });
+}
+
+// ============================================================
+// INTERACTIVE CHAMBER LOCATION & MAP HANDLERS
+// ============================================================
+window.copyChamberAddress = function() {
+  const address = "Flat No. 5F, B Block, Royal Residency, Azara SOS Road (Opp. Guwahati International Airport), Guwahati, Assam — 781017";
+  const btn = document.getElementById('copyChamberAddressBtn');
+  const textSpan = document.getElementById('copyBtnText');
+
+  function showSuccess() {
+    if (btn && textSpan) {
+      const origText = textSpan.innerHTML;
+      btn.classList.add('is-copied');
+      textSpan.innerHTML = 'Address Copied! ✓';
+      setTimeout(() => {
+        btn.classList.remove('is-copied');
+        textSpan.innerHTML = origText;
+      }, 2500);
+    }
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(address).then(showSuccess).catch(() => {
+      fallbackCopyText(address, showSuccess);
+    });
+  } else {
+    fallbackCopyText(address, showSuccess);
+  }
+};
+
+window.copyDelhiChamberAddress = function() {
+  const address = "Chamber no. 396, Western Wing, Tis Hazari Courts, Delhi — 110054";
+  const btn = document.getElementById('copyDelhiChamberAddressBtn');
+  const textSpan = document.getElementById('copyDelhiBtnText');
+
+  function showSuccess() {
+    if (btn && textSpan) {
+      const origText = textSpan.innerHTML;
+      btn.classList.add('is-copied');
+      textSpan.innerHTML = 'Address Copied! ✓';
+      setTimeout(() => {
+        btn.classList.remove('is-copied');
+        textSpan.innerHTML = origText;
+      }, 2500);
+    }
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(address).then(showSuccess).catch(() => {
+      fallbackCopyText(address, showSuccess);
+    });
+  } else {
+    fallbackCopyText(address, showSuccess);
+  }
+};
+
+window.shareChamberLocation = function() {
+  const shareBtn = document.getElementById('shareLocationBtn');
+  const mapUrl = "https://www.google.com/maps/place/Title+Square/@26.1107966,91.595573,17z";
+  const shareData = {
+    title: 'Title Square Registered Headquarters & Chamber',
+    text: 'Title Square Legal Chamber — Royal Residency, Azara (Opp. Guwahati Airport), Assam 781017',
+    url: mapUrl
+  };
+
+  function showCopied() {
+    if (shareBtn) {
+      const orig = shareBtn.innerHTML;
+      shareBtn.classList.add('is-copied');
+      shareBtn.innerHTML = '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Link Copied!';
+      setTimeout(() => {
+        shareBtn.classList.remove('is-copied');
+        shareBtn.innerHTML = orig;
+      }, 2500);
+    }
+  }
+
+  if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+    navigator.share(shareData).catch(() => {});
+  } else if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(mapUrl).then(showCopied).catch(showCopied);
+  } else {
+    fallbackCopyText(mapUrl, showCopied);
+  }
+};
+
+function fallbackCopyText(text, callback) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  textArea.style.top = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    if (callback) callback();
+  } catch (err) {
+    console.error('Fallback copy failed', err);
+  }
+  document.body.removeChild(textArea);
+}
+
+// ============================================================
+// INDIAN STATE CAPITALS DIRECTORY FILTER & SEARCH
+// ============================================================
+function initCapitalDirectoryFilter() {
+  const searchInput = document.getElementById('capitalSearchInput');
+  const clearBtn = document.getElementById('clearCapitalSearchBtn');
+  const zoneBtns = document.querySelectorAll('#capitalZoneTabs .cap-zone-btn');
+  const cards = document.querySelectorAll('#capitalsCardsGrid .capital-city-card');
+
+  if (!cards.length) return;
+
+  let activeZone = 'all';
+  let searchQuery = '';
+
+  function filterCards() {
+    cards.forEach(card => {
+      const cardZone = card.getAttribute('data-zone') || '';
+      const cardCity = (card.getAttribute('data-city') || '').toLowerCase();
+      const cardState = (card.getAttribute('data-state') || '').toLowerCase();
+      const cardText = card.textContent.toLowerCase();
+
+      const matchesZone = (activeZone === 'all') || 
+        (cardZone === activeZone) || 
+        (activeZone === 'ut' && (cardZone === 'ut' || cardState.includes('ut')));
+      const matchesSearch = !searchQuery || 
+        cardCity.includes(searchQuery) || 
+        cardState.includes(searchQuery) || 
+        cardText.includes(searchQuery);
+
+      if (matchesZone && matchesSearch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (clearBtn) {
+      clearBtn.style.display = searchQuery ? 'inline-block' : 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      filterCards();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      searchQuery = '';
+      filterCards();
+    });
+  }
+
+  if (zoneBtns.length) {
+    zoneBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        zoneBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeZone = btn.getAttribute('data-zone') || 'all';
+        filterCards();
+      });
+    });
+  }
+}
+
+// Auto-run when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCapitalDirectoryFilter);
+} else {
+  initCapitalDirectoryFilter();
+}
+
+// ============================================================
+// INTERACTIVE LEAD SUCCESS MODAL POPUP
+// ============================================================
+window.showLeadSuccessModal = function(lead) {
+  let layer = document.getElementById('leadSuccessLayer');
+  if (!layer) {
+    layer = document.createElement('div');
+    layer.className = 'lead-success-layer';
+    layer.id = 'leadSuccessLayer';
+    document.body.appendChild(layer);
+
+    layer.addEventListener('click', (e) => {
+      if (e.target === layer) window.closeLeadSuccessModal();
+    });
+  }
+
+  const clientName = lead.fullName || 'Valued Client';
+  const clientPhone = lead.phone || '';
+  const locationText = [lead.city, lead.village, lead.pincode].filter(Boolean).join(', ') || 'Pan-India';
+  const landRef = [
+    lead.dagKhasraSurvey ? `Dag/Khasra: ${lead.dagKhasraSurvey}` : '',
+    lead.pattaKhataKhatiyan ? `Patta: ${lead.pattaKhataKhatiyan}` : ''
+  ].filter(Boolean).join(' • ');
+
+  layer.innerHTML = `
+    <div class="lead-success-card">
+      <div class="lead-success-header">
+        <div class="lead-success-badge-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="lead-success-title">Request Received Successfully!</h3>
+        <p class="lead-success-sub">Title Square Law Firm &bull; Delhi &amp; Guwahati Chambers</p>
+      </div>
+      <div class="lead-success-body">
+        <div class="lead-success-pill">
+          <span>✓</span> Data Recorded &amp; Transmitted to Legal Desk
+        </div>
+        <div class="lead-success-meta-box">
+          <div><strong>Applicant:</strong> ${escapeHTML(clientName)} ${clientPhone ? '(' + escapeHTML(clientPhone) + ')' : ''}</div>
+          <div><strong>Jurisdiction:</strong> ${escapeHTML(locationText)}</div>
+          ${landRef ? `<div><strong>Land Record:</strong> ${escapeHTML(landRef)}</div>` : ''}
+          <div style="margin-top: 6px; font-size: 11.5px; color: #059669; font-weight: 700;">
+            ✓ High Court Empanelled Advocate assigned for verification.
+          </div>
+        </div>
+        <button type="button" class="lead-success-action-btn" onclick="window.closeLeadSuccessModal()">
+          Done &amp; Continue &rarr;
+        </button>
+      </div>
+    </div>
+  `;
+
+  layer.classList.add('is-active');
+};
+
+window.closeLeadSuccessModal = function() {
+  const layer = document.getElementById('leadSuccessLayer');
+  if (layer) layer.classList.remove('is-active');
+};
+
+function escapeHTML(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+

@@ -52,6 +52,9 @@ function closeModal(modal) {
 
 // Handle Form Submissions with visual feedback
 function initFormSubmissions() {
+  // If main.js has already bound ajax-form handlers, skip duplicate binding
+  if (window._ajaxFormsInitialized) return;
+  window._ajaxFormsInitialized = true;
   const forms = document.querySelectorAll('form.ajax-form');
 
   forms.forEach(form => {
@@ -83,11 +86,14 @@ function initFormSubmissions() {
 
         form.reset();
         
-        // Show success alert
-        if (typeof showToast === 'function') {
-          showToast('Success! Title Square legal team received your request. We will reach you shortly on WhatsApp & Call.', 'success');
-        } else {
-          alert('Success! Your request has been recorded. Our property legal advocate will connect with you.');
+        // Show custom interactive success modal
+        if (typeof window.showLeadSuccessModal === 'function') {
+          window.showLeadSuccessModal({
+            fullName: form.querySelector('input[type="text"]')?.value || 'Client',
+            phone: form.querySelector('input[type="tel"]')?.value || ''
+          });
+        } else if (typeof showToast === 'function') {
+          showToast('Success! Title Square legal team received your request.', 'success');
         }
       }, 1200);
     });
