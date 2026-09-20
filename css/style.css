@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    TITLE SQUARE — CORPORATE LEGAL THEME
    Deep Navy #002244 / Red #c8102e / Gold #ffc72c
    Fonts: Plus Jakarta Sans + Inter
@@ -147,11 +147,11 @@ button { cursor: pointer; font-family: var(--font-b); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 76px;
 }
 
 .brand-logo-img {
-  height: 42px;
+  height: 46px;
   width: auto;
 }
 
@@ -161,14 +161,23 @@ button { cursor: pointer; font-family: var(--font-b); }
   gap: 2px;
 }
 
+.mobile-drawer-links {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 .nav-link {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-h);
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--text-mid);
-  padding: 7px 13px;
+  padding: 8px 12px;
   border-radius: var(--r-sm);
   transition: color .15s, background .15s;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -182,13 +191,13 @@ button { cursor: pointer; font-family: var(--font-b); }
   background: transparent;
   border-bottom: 2.5px solid var(--navy);
   border-radius: 0;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* ============================================================

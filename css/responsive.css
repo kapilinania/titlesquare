@@ -15,6 +15,25 @@
   display: none !important;
 }
 
+/* Medium Desktop & Laptop Navbar Scaling (992px - 1180px) */
+@media (min-width: 992px) and (max-width: 1180px) {
+  .nav-link {
+    font-size: 13.5px;
+    padding: 7px 8px;
+  }
+  .mobile-drawer-links {
+    gap: 1px;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .btn-auth-red,
+  .btn-auth-navy {
+    padding: 7px 12px;
+    font-size: 12.5px;
+  }
+}
+
 /* ============================================================
    TABLET & MOBILE NAVIGATION (max 991px)
    ============================================================ */
@@ -33,7 +52,8 @@
 
   /* Hide floating widgets when mobile menu is open to prevent overlapping */
   body.mobile-nav-open .quick-check-widget,
-  body.mobile-nav-open .quick-check-reopen-pill {
+  body.mobile-nav-open .quick-check-reopen-pill,
+  body.mobile-nav-open .floating-contact-actions {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -413,7 +433,7 @@
     margin-top: auto;
   }
 
-  .drawer-chamber-info {
+  .drawer--info {
     margin-top: 10px;
     padding: 9px 11px;
     border-radius: 8px;
@@ -565,11 +585,11 @@
 
   /* Compact header on mobile */
   .nav-container {
-    height: 56px;
-    padding: 0 12px;
+    height: 62px;
+    padding: 0 14px;
   }
   .brand-logo-img {
-    height: 32px;
+    height: 36px;
   }
   .nav-actions {
     gap: 5px;

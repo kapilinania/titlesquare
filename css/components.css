@@ -1509,7 +1509,7 @@
   margin-top: 24px;
 }
 
-.hq-chamber-info-card {
+.hq--info-card {
   background: var(--bg-page);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
@@ -1519,7 +1519,7 @@
   justify-content: space-between;
 }
 
-.hq-chamber-subtitle {
+.hq--subtitle {
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
@@ -1623,7 +1623,7 @@
   line-height: 1.45;
 }
 
-.hq-chamber-actions {
+.hq--actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -2074,7 +2074,7 @@
   font-family: var(--font-h);
   font-size: 13.5px;
   font-weight: 800;
-  padding: 8px 16px;
+  padding: 8px 15px;
   border-radius: var(--r-sm);
   border: 1.5px solid var(--red);
   cursor: pointer;
@@ -2083,6 +2083,7 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-auth-red:hover {
@@ -2096,7 +2097,7 @@
   font-family: var(--font-h);
   font-size: 13.5px;
   font-weight: 800;
-  padding: 8px 16px;
+  padding: 8px 15px;
   border-radius: var(--r-sm);
   border: 1.5px solid var(--navy);
   cursor: pointer;
@@ -2105,6 +2106,7 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-auth-navy:hover {
@@ -4110,6 +4112,218 @@
   }
   .capitals-filter-wrapper {
     padding: 16px;
+  }
+}
+
+/* ============================================================
+   FLOATING CONTACT ACTIONS (WhatsApp & Call - downside)
+   ============================================================ */
+.floating-contact-actions {
+  position: fixed;
+  bottom: 26px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1040;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.floating-action-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0, 21, 43, 0.25);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.floating-action-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 26px rgba(0, 21, 43, 0.35);
+}
+
+.floating-action-btn:active {
+  transform: scale(0.94);
+}
+
+/* WhatsApp Button */
+.floating-action-btn.btn-wa {
+  background: #25d366;
+}
+
+/* Call Button */
+.floating-action-btn.btn-call {
+  background: #002244;
+  border: 1.5px solid #ffc72c;
+}
+
+/* Animated Pulse Ripple Effect */
+.fab-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wa-ring {
+  border: 2px solid rgba(37, 211, 102, 0.65);
+  animation: fab-ripple-wa 2.4s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+.call-ring {
+  border: 2px solid rgba(255, 199, 44, 0.65);
+  animation: fab-ripple-call 2.4s infinite cubic-bezier(0, 0.2, 0.8, 1) 1.2s;
+}
+
+@keyframes fab-ripple-wa {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes fab-ripple-call {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+/* Icon Box & Animated Effects */
+.fab-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Call Icon Ringing Shake Animation */
+.btn-call .fab-icon-box {
+  animation: phone-ring-wobble 3.6s infinite ease-in-out;
+}
+
+/* WhatsApp Icon Gentle Pulse/Bounce Animation */
+.btn-wa .fab-icon-box {
+  animation: wa-bounce-pulse 3.6s infinite ease-in-out 1.8s;
+}
+
+@keyframes phone-ring-wobble {
+  0%, 60%, 100% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(-16deg);
+  }
+  70% {
+    transform: rotate(14deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  85% {
+    transform: rotate(-4deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wa-bounce-pulse {
+  0%, 65%, 100% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(1.12);
+  }
+  85% {
+    transform: scale(1);
+  }
+}
+
+/* Desktop Hover Tooltip */
+.fab-tooltip {
+  position: absolute;
+  left: 64px;
+  background: #00152b;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fab-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #00152b transparent transparent;
+}
+
+.floating-action-btn:hover .fab-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive adjustment for Mobile */
+@media (max-width: 991px) {
+  .floating-contact-actions {
+    bottom: 78px;
+    left: 14px;
+    gap: 10px;
+  }
+  .floating-action-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .floating-action-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  .fab-tooltip {
+    display: none;
   }
 }
 

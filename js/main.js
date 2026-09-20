@@ -238,12 +238,12 @@ const inspectData = {
     stage: "STAGE 04",
     heading: "Advocate-Certified Title Opinion & Bank-Ready TSR",
     summary: "Official Legal Scrutiny Report (LSR) and Non-Encumbrance Certificate signed by empanelled High Court advocate, accepted by SBI, HDFC, ICICI, and Axis Bank.",
-    doc: "• ISSUING CHAMBER: TITLE SQUARE LEGAL ASSOCIATES\n• EMPANELLED ADVOCATE: Khusboo Verma, Sangita Sarma (Advocates)\n• BAR ENROLMENT: Gauhati High Court Bar Association\n• FINAL OPINION: Title is Marketable, Clear and Free from all Encumbrances\n• CERTIFICATION: Ready for Bank Loan Disbursement & Sub-Registrar Execution",
+    doc: "• ISSUING : TITLE SQUARE LEGAL ASSOCIATES\n• EMPANELLED ADVOCATE: Khusboo Verma, Sangita Sarma (Advocates)\n• BAR ENROLMENT: Gauhati High Court Bar Association\n• FINAL OPINION: Title is Marketable, Clear and Free from all Encumbrances\n• CERTIFICATION: Ready for Bank Loan Disbursement & Sub-Registrar Execution",
     checks: [
       "Bar Council verified advocate signature",
       "Pan-India Bank-approved TSR format",
       "13-Point Title Warranty & Indemnity Checklist",
-      "Official Chamber Seal & Enrolment Number"
+      "Official  Seal & Enrolment Number"
     ]
   }
 };
@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pass = document.getElementById('loginPassword').value.trim();
       const authErr = document.getElementById('authErrorBox');
 
-      const validIdentifiers = ['contact@titlesquare.in', '9871761798', '+919871761798', 'admin@gmail.com', 'admin', '9876543210', '+919876543210'];
+      const validIdentifiers = ['contact@titlesquare.in', '9957643980', '+919957643980', '9871761798', '+919871761798', 'admin@gmail.com', 'admin', '9876543210', '+919876543210'];
 
       if (validIdentifiers.includes(identifier) && pass === '123') {
         sessionStorage.setItem('titleSquare_user', identifier);
@@ -691,7 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hiddenSlotInput) return;
     const activeDay = document.querySelector('.slot-day-btn.is-active strong')?.textContent || 'Today';
     const activeTime = document.querySelector('.time-slot-btn.is-selected')?.textContent || '10:30 AM';
-    const activeMode = document.querySelector('.mode-btn.is-active')?.textContent || 'In-Person Chamber';
+    const activeMode = document.querySelector('.mode-btn.is-active')?.textContent || 'In-Person ';
     hiddenSlotInput.value = `${activeDay} | ${activeTime} | ${activeMode}`;
   }
 
@@ -798,11 +798,11 @@ function initCapitalDirectoryFilter() {
 }
 
 // ============================================================
-// INTERACTIVE CHAMBER LOCATION & MAP HANDLERS
+// INTERACTIVE  LOCATION & MAP HANDLERS
 // ============================================================
-window.copyChamberAddress = function() {
+window.copyAddress = function() {
   const address = "Flat No. 5F, B Block, Royal Residency, Azara SOS Road (Opp. Guwahati International Airport), Guwahati, Assam — 781017";
-  const btn = document.getElementById('copyChamberAddressBtn');
+  const btn = document.getElementById('copyAddressBtn');
   const textSpan = document.getElementById('copyBtnText');
 
   function showSuccess() {
@@ -826,9 +826,9 @@ window.copyChamberAddress = function() {
   }
 };
 
-window.copyDelhiChamberAddress = function() {
-  const address = "Chamber no. 396, Western Wing, Tis Hazari Courts, Delhi — 110054";
-  const btn = document.getElementById('copyDelhiChamberAddressBtn');
+window.copyDelhiAddress = function() {
+  const address = " no. 396, Western Wing, Tis Hazari Courts, Delhi — 110054";
+  const btn = document.getElementById('copyDelhiAddressBtn');
   const textSpan = document.getElementById('copyDelhiBtnText');
 
   function showSuccess() {
@@ -852,12 +852,12 @@ window.copyDelhiChamberAddress = function() {
   }
 };
 
-window.shareChamberLocation = function() {
+window.shareLocation = function() {
   const shareBtn = document.getElementById('shareLocationBtn');
   const mapUrl = "https://www.google.com/maps/place/Title+Square/@26.1107966,91.595573,17z";
   const shareData = {
-    title: 'Title Square Registered Headquarters & Chamber',
-    text: 'Title Square Legal Chamber — Royal Residency, Azara (Opp. Guwahati Airport), Assam 781017',
+    title: 'Title Square Registered Headquarters & ',
+    text: 'Title Square Legal  — Royal Residency, Azara (Opp. Guwahati Airport), Assam 781017',
     url: mapUrl
   };
 
@@ -1011,7 +1011,7 @@ window.showLeadSuccessModal = function(lead) {
           </svg>
         </div>
         <h3 class="lead-success-title">Request Received Successfully!</h3>
-        <p class="lead-success-sub">Title Square Law Firm &bull; Delhi &amp; Guwahati Chambers</p>
+        <p class="lead-success-sub">Title Square Law Firm &bull; Delhi &amp; Guwahati s</p>
       </div>
       <div class="lead-success-body">
         <div class="lead-success-pill">
