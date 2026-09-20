@@ -291,7 +291,13 @@
           <input type="text" id="blogSearchInput" class="blog-search-input" placeholder="Search legal topics, e.g. 30-Year search, Jamabandi, GPA Suraj Lamp, TSR, Patta..." oninput="handleLiveSearch(this.value)">
           <button type="button" id="clearSearchBtn" class="blog-search-clear" onclick="clearLiveSearch()" style="display:none;" title="Clear search">&times;</button>
         </div>
-        <div class="blog-stats-pill" id="blogResultsCount">4 Legal Analyses Available</div>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <div class="blog-stats-pill" id="blogResultsCount">4 Legal Analyses Available</div>
+          <button type="button" class="btn btn-navy" onclick="window.openBlogStudio()" style="padding: 8px 14px; font-size: 12.5px; display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; white-space: nowrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            <span>Author Studio / Add Blog</span>
+          </button>
+        </div>
       </div>
 
       <!-- Category Filter Tabs -->
@@ -1494,9 +1500,273 @@
     <span id="blogToastMsg">Action completed successfully</span>
   </div>
 
+  <!-- ============================================================
+       BLOG AUTHOR STUDIO & GIT APPROVAL WORKFLOW MODAL
+       ============================================================ -->
+  <div class="blog-studio-overlay" id="blogStudioOverlay" role="dialog" aria-modal="true" aria-labelledby="bsModalTitle">
+    <div class="bs-modal">
+      <!-- Top Header -->
+      <div class="bs-header">
+        <div class="bs-header-brand">
+          <img src="assets/logo.svg" alt="Title Square" style="height: 28px; filter: brightness(0) invert(1);">
+          <h2 class="bs-header-title" id="bsModalTitle">
+            <span>The Title Square Gazette</span>
+            <span style="color: var(--gold); font-size: 13px; font-weight: normal;">| Legal Author Studio</span>
+          </h2>
+        </div>
+        <div class="bs-user-info">
+          <span id="bsCurrentUserRole" class="bs-role-pill bs-role-pill--author">✍️ Contributor</span>
+          <span id="bsCurrentUserName" style="font-size: 13px; font-weight: 600; color: #ffffff;">Guest</span>
+          <button type="button" class="btn btn-outline" onclick="handleStudioLogout()" style="padding: 4px 10px; font-size: 11px; color: #cbd5e1; border-color: rgba(255,255,255,0.2);">
+            Logout
+          </button>
+          <button type="button" class="bs-btn-close" onclick="closeBlogStudio()" aria-label="Close Studio">&times;</button>
+        </div>
+      </div>
+
+      <!-- Navigation Bar -->
+      <div class="bs-navbar" id="bsNavBar">
+        <button type="button" class="bs-tab-btn is-active" data-tab="editor" onclick="switchStudioTab('editor', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+          <span>Writing Studio &amp; Live Preview</span>
+        </button>
+        <button type="button" class="bs-tab-btn" data-tab="list" onclick="switchStudioTab('list', this)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <span>All Articles</span>
+        </button>
+        <button type="button" class="bs-tab-btn" id="bsTabApprovalNav" data-tab="approvals" onclick="switchStudioTab('approvals', this)" style="display: none;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Git Approvals</span>
+          <span class="bs-badge-counter" id="bsPendingCountBadge" style="display: none;">0</span>
+        </button>
+        <button type="button" class="bs-tab-btn" data-tab="git" onclick="switchStudioTab('git', this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>Git Sync Log</span>
+        </button>
+      </div>
+
+      <!-- Studio Body Content -->
+      <div class="bs-body">
+        <!-- 1. LOGIN SCREEN -->
+        <div id="bsLoginScreen" style="display: none; padding: 20px; overflow-y: auto;">
+          <div class="bs-login-container">
+            <div style="font-size: 36px; margin-bottom: 8px;">⚖️</div>
+            <h3 class="bs-login-title">Legal Contributor Portal</h3>
+            <p class="bs-login-desc">Sign in to compose property law analyses, edit previous articles, and submit Git commit merge requests.</p>
+            <form onsubmit="handleStudioLogin(event)">
+              <div class="bs-login-field">
+                <label class="bs-login-label">Username / Registered Email</label>
+                <input type="text" id="bsLoginUser" class="bs-input-control" placeholder="author or admin" required autocomplete="username">
+              </div>
+              <div class="bs-login-field">
+                <label class="bs-login-label">Password</label>
+                <input type="password" id="bsLoginPass" class="bs-input-control" placeholder="••••••" required autocomplete="current-password">
+              </div>
+              <div id="bsLoginError" style="display: none; color: #dc2626; font-size: 12px; margin-bottom: 12px; font-weight: 600;"></div>
+              <button type="submit" class="btn btn-navy" style="width: 100%; justify-content: center; height: 42px;">
+                Enter Blog Studio &rarr;
+              </button>
+            </form>
+            <div class="bs-demo-hint-box">
+              <strong style="color: var(--navy);">Demo Access Credentials:</strong><br>
+              &bull; <strong>Author / Contributor:</strong> <code>author</code> / <code>123</code><br>
+              &bull; <strong>Chief Legal Editor (Admin):</strong> <code>admin</code> / <code>123</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. MAIN APP SCREEN -->
+        <div id="bsAppScreen" style="display: flex; flex: 1; overflow: hidden; flex-direction: column;">
+          
+          <!-- TAB 1: SPLIT WORKSPACE (Editor + Live Preview) -->
+          <div class="bs-tab-pane is-active" id="bsPane-editor">
+            <div class="bs-split-workspace">
+              <!-- Left: Writing Studio Form -->
+              <div class="bs-editor-pane">
+                <div class="bs-pane-header">
+                  <h3 class="bs-pane-title">
+                    <span id="bsFormModeTitle">Create New Legal Analysis</span>
+                  </h3>
+                  <div>
+                    <span id="bsArticleStatusBadge" class="bs-status-badge bs-status-badge--draft">Draft</span>
+                  </div>
+                </div>
+
+                <div class="bs-editor-scroll">
+                  <form id="bsArticleForm" onsubmit="handleArticleSubmit(event)">
+                    <!-- Title -->
+                    <div style="margin-bottom: 14px;">
+                      <label class="bs-login-label">Article Title *</label>
+                      <input type="text" id="bsArticleTitle" class="bs-input-control" placeholder="e.g. Critical 30-Year Title Search Nuances in Delhi DDA Flats..." required oninput="updateLivePreview()">
+                    </div>
+
+                    <!-- Row: Category & Tag -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                      <div>
+                        <label class="bs-login-label">Category Jurisdiction *</label>
+                        <select id="bsArticleCategory" class="bs-input-control" onchange="updateLivePreview()">
+                          <option value="delhi">Delhi NCR (DORIS / DDA)</option>
+                          <option value="assam">Guwahati &amp; Assam (Dharitree / Jamabandi)</option>
+                          <option value="bank">Bank Loans &amp; TSR Audit</option>
+                          <option value="fraud">Fraud Prevention &amp; Due Diligence</option>
+                          <option value="rera">RERA Precedents &amp; Consumer Law</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="bs-login-label">Tag Badge *</label>
+                        <input type="text" id="bsArticleTag" class="bs-input-control" placeholder="e.g. Due Diligence, RERA Precedent" value="Due Diligence" oninput="updateLivePreview()">
+                      </div>
+                    </div>
+
+                    <!-- Row: Author Name -->
+                    <div style="margin-bottom: 14px;">
+                      <label class="bs-login-label">Author Name &amp; Designation *</label>
+                      <input type="text" id="bsAuthorName" class="bs-input-control" placeholder="Adv. Rajesh Sarma, Gauhati High Court Bar" required oninput="updateLivePreview()">
+                    </div>
+
+                    <!-- Lead Paragraph -->
+                    <div style="margin-bottom: 14px;">
+                      <label class="bs-login-label">Lead Editorial Summary (Appears in Gazette Box) *</label>
+                      <textarea id="bsArticleLead" class="bs-input-control" style="height: 72px; padding: 8px 12px; line-height: 1.5; resize: vertical;" placeholder="Summary of the legal dispute, statutory framework, or practical caveat for property investors..." required oninput="updateLivePreview()"></textarea>
+                    </div>
+
+                    <!-- Rich Helper Toolbar -->
+                    <div class="bs-helper-toolbar">
+                      <span class="bs-toolbar-label">Drafting Tools:</span>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('h2')">H2 Section</button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('h3')">H3 Subsection</button>
+                      <button type="button" class="bs-btn-tool bs-btn-tool--gold" onclick="insertEditorSnippet('warning')">⚠️ Statutory Warning</button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('quote')">⚖️ SC/HC Case Quote</button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('checklist')">📋 5-Step Checklist</button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('stat')">📊 Key Stat Box</button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('bold')"><strong>B</strong></button>
+                      <button type="button" class="bs-btn-tool" onclick="insertEditorSnippet('italic')"><em>I</em></button>
+                    </div>
+
+                    <!-- Full Content HTML -->
+                    <div style="margin-bottom: 14px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label class="bs-login-label" style="margin: 0;">Article Body (HTML / Formatted Text) *</label>
+                        <span id="bsWordCount" style="font-size: 11px; color: #64748b; font-weight: 600;">0 words (1 min read)</span>
+                      </div>
+                      <textarea id="bsArticleContent" class="bs-input-control" style="height: 240px; padding: 10px 12px; line-height: 1.6; font-family: ui-monospace, monospace; font-size: 13px; resize: vertical;" placeholder="Write or paste your article content here. Use the helper buttons above to insert formatted boxes..." required oninput="updateLivePreview()"></textarea>
+                    </div>
+
+                    <!-- Actions -->
+                    <div style="display: flex; gap: 10px; align-items: center; padding-top: 6px; border-top: 1px solid #e2e8f0;">
+                      <button type="submit" class="btn btn-navy" id="bsSubmitBtn" style="padding: 10px 20px; font-size: 13px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span id="bsSubmitBtnText">Submit for Git Approval</span>
+                      </button>
+                      <button type="button" class="btn btn-outline" onclick="initNewArticle()" style="padding: 9px 14px; font-size: 13px;">
+                        Reset / New Blank
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Right: Live Real-time Responsive Preview -->
+              <div class="bs-preview-pane">
+                <div class="bs-pane-header">
+                  <h3 class="bs-pane-title">
+                    <span>Live Newspaper Preview</span>
+                  </h3>
+                  <div class="bs-preview-device-switch">
+                    <button type="button" class="bs-preview-device-btn is-active" onclick="setPreviewDevice('desktop', this)">
+                      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                      <span>Desktop</span>
+                    </button>
+                    <button type="button" class="bs-preview-device-btn" onclick="setPreviewDevice('mobile', this)">
+                      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                      <span>Mobile View</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Desktop Preview -->
+                <div class="bs-preview-scroll" id="bsPreviewDesktopWrap">
+                  <div class="blog-post-card" id="bsPreviewDesktop" style="margin: 0; box-shadow: none; border-color: #cbd5e1;">
+                    <!-- Dynamically updated -->
+                  </div>
+                </div>
+
+                <!-- Mobile Phone Mockup Frame -->
+                <div class="bs-mobile-frame-wrap" id="bsPreviewMobileWrap">
+                  <div class="phone-mockup-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div class="blog-post-card" id="bsPreviewMobileInner" style="margin: 0; box-shadow: none; border: none; padding: 0;">
+                        <!-- Dynamically updated -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: ALL ARTICLES (Edit previous blogs) -->
+          <div class="bs-tab-pane" id="bsPane-list">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div>
+                <h3 style="font-size: 18px; color: var(--navy); margin: 0 0 4px; font-family: var(--font-serif);">All Legal Articles Directory</h3>
+                <p style="font-size: 13px; color: #64748b; margin: 0;">Manage, update, and inspect both published precedents and client draft submissions.</p>
+              </div>
+              <button type="button" class="btn btn-navy" onclick="initNewArticle()" style="padding: 8px 16px; font-size: 13px;">
+                + Create New Article
+              </button>
+            </div>
+
+            <div class="bs-table-wrap">
+              <table class="bs-table">
+                <thead>
+                  <tr>
+                    <th>Article Title &amp; Author</th>
+                    <th>Jurisdiction</th>
+                    <th>Status</th>
+                    <th>Published / Updated</th>
+                    <th style="text-align: right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="bsArticlesTableBody">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 3: ADMIN GIT APPROVAL QUEUE -->
+          <div class="bs-tab-pane" id="bsPane-approvals">
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 18px; color: var(--navy); margin: 0 0 4px; font-family: var(--font-serif);">Git Approval &amp; Merge Queue</h3>
+              <p style="font-size: 13px; color: #64748b; margin: 0;">Review client and author submitted legal articles. Approving publishes the article live for all visitors immediately and logs a Git commit payload.</p>
+            </div>
+            <div id="bsApprovalQueueList">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+          <!-- TAB 4: GIT COMMIT SYNC LOG -->
+          <div class="bs-tab-pane" id="bsPane-git">
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 18px; color: var(--navy); margin: 0 0 4px; font-family: var(--font-serif);">Git Synchronization &amp; Commit History</h3>
+              <p style="font-size: 13px; color: #64748b; margin: 0;">Complete audit trail of article creations, updates, and approvals formatted for GitHub repo commits.</p>
+            </div>
+            <div id="bsGitCommitLogList">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
   <script src="js/modal.js"></script>
+  <script src="js/blog-studio.js"></script>
 
   <script>
     // Reading Progress Bar
@@ -1516,7 +1786,7 @@
       const statsPill = document.getElementById('blogResultsCount');
       if (clearBtn) clearBtn.style.display = q.length > 0 ? 'inline-block' : 'none';
 
-      const articles = document.querySelectorAll('.blog-post-card');
+      const articles = document.querySelectorAll('.blog-main-column .blog-post-card');
       let visibleCount = 0;
 
       articles.forEach(art => {
@@ -1556,7 +1826,7 @@
         if (clearBtn) clearBtn.style.display = 'none';
       }
 
-      const articles = document.querySelectorAll('.blog-post-card');
+      const articles = document.querySelectorAll('.blog-main-column .blog-post-card');
       let visibleCount = 0;
       articles.forEach(art => {
         const cats = art.getAttribute('data-category') || '';
