@@ -395,7 +395,7 @@ document.addEventListener('click', (e) => {
     const modal = document.getElementById('reportModalLayer');
     if (modal) {
       const expert = reportTrigger.getAttribute('data-expert');
-      const targetCity = reportTrigger.getAttribute('data-city');
+      const targetState = reportTrigger.getAttribute('data-state') || reportTrigger.getAttribute('data-city');
       const titleEl = modal.querySelector('.modal-banner h4');
       if (expert && titleEl) {
         titleEl.textContent = `Consult with ${expert}`;
@@ -403,13 +403,16 @@ document.addEventListener('click', (e) => {
         titleEl.textContent = 'Get Jamabandi Copy';
       }
 
-      // Pre-select city if triggered from city buttons/links
-      if (targetCity) {
-        const citySelect = modal.querySelector('select');
-        if (citySelect) {
-          for (let i = 0; i < citySelect.options.length; i++) {
-            if (citySelect.options[i].value.toLowerCase().includes(targetCity.toLowerCase())) {
-              citySelect.selectedIndex = i;
+      // Pre-select state / jurisdiction if triggered from state/city buttons/links
+      if (targetState) {
+        const stateSelect = modal.querySelector('select');
+        if (stateSelect) {
+          const sTerm = targetState.toLowerCase();
+          for (let i = 0; i < stateSelect.options.length; i++) {
+            const optVal = (stateSelect.options[i].value || '').toLowerCase();
+            const optText = (stateSelect.options[i].textContent || '').toLowerCase();
+            if (optVal.includes(sTerm) || optText.includes(sTerm) || sTerm.includes(optVal)) {
+              stateSelect.selectedIndex = i;
               break;
             }
           }

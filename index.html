@@ -28,7 +28,7 @@
       <div class="top-bar-right">
         <span class="top-bar-city-pill">
           <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span data-i18n="top.cities">Pan India</span>
+          <span data-i18n="top.cities">India</span>
         </span>
       </div>
     </div>
@@ -118,13 +118,13 @@
             <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
           </a>
 
-          <a href="cities.html" class="nav-link">
+          <a href="states.html" class="nav-link">
             <span class="nav-link-icon-wrap">
               <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </span>
             <span class="nav-link-content">
-              <span class="nav-link-title" data-i18n="nav.cities">Cities</span>
-              <span class="nav-link-sub">Pan-India Operational Jurisdictions</span>
+              <span class="nav-link-title" data-i18n="nav.cities">States</span>
+              <span class="nav-link-sub">Pan-India State Jurisdictions &amp; Coverage</span>
             </span>
             <svg class="nav-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6"/></svg>
           </a>
@@ -299,7 +299,7 @@
             </select>
           </div>
           <div class="field-wrap">
-            <label data-i18n="form.city">City / State Capital</label>
+            <label data-i18n="form.city">State / Jurisdiction</label>
             <select class="field-control" required>
               <optgroup label="Headquarters & Metro s">
                 <option value="Delhi NCR" selected>Delhi NCR</option>
@@ -672,7 +672,7 @@
           <div class="panindia-item">
             <h4 data-i18n="pi.i3Title">Sub-Registrar Registration Desk</h4>
             <p data-i18n="pi.i3Desc">Assistance with e-stamping, circle rate calculation, online appointment booking, and Sub-Registrar execution.</p>
-            <span class="tag-pill" data-i18n="pi.i3Tag">&bull; Pan India Live Coverage</span>
+            <span class="tag-pill" data-i18n="pi.i3Tag">&bull; All Over India Live Coverage</span>
           </div>
 
           <div class="panindia-item">
@@ -685,12 +685,12 @@
     </div>
   </section>
 
-  <!-- CITIES SECTION -->
+  <!-- STATES SECTION -->
   <section class="section-gray">
     <div class="container">
       <div class="section-title-wrap">
-        <span class="section-label" data-i18n="cities.tag">Where We Operate</span>
-        <h2 class="section-heading" data-i18n="cities.heading">Currently Active Cities</h2>
+        <span class="section-label" data-i18n="cities.tag">Statewide Coverage</span>
+        <h2 class="section-heading" data-i18n="cities.heading">Currently Active States &amp; Jurisdictions</h2>
       </div>
       <div class="cities-grid">
         <div class="city-card city-card--active">
@@ -701,41 +701,41 @@
             </div>
             <span class="badge-active-hub" data-i18n="cities.liveBadge">Live</span>
           </div>
-          <button class="btn btn-navy open-modal-trigger" style="width: 100%;" data-i18n="cities.delhiBtn">Check Delhi Property</button>
+          <button class="btn btn-navy open-modal-trigger" data-state="Delhi NCR" data-city="Delhi NCR" style="width: 100%;" data-i18n="cities.delhiBtn">Check Delhi Property</button>
         </div>
         <div class="city-card city-card--active">
           <div class="city-card-top">
             <div>
-              <h3 data-i18n="cities.ghyTitle">Guwahati</h3>
+              <h3 data-i18n="cities.ghyTitle">Assam (Guwahati)</h3>
               <p data-i18n="cities.ghyDesc">Dispur, Sadar, Azara revenue circles and Dharitree records</p>
             </div>
             <span class="badge-active-hub" data-i18n="cities.liveBadge">Live</span>
           </div>
-          <button class="btn btn-navy open-modal-trigger" style="width: 100%;" data-i18n="cities.ghyBtn">Check Guwahati Property</button>
+          <button class="btn btn-navy open-modal-trigger" data-state="Assam" data-city="Guwahati" style="width: 100%;" data-i18n="cities.ghyBtn">Check Assam Property</button>
         </div>
         <div class="city-card city-card--soon">
           <div class="city-card-top">
             <div>
-              <h3 data-i18n="cities.mumTitle">Mumbai</h3>
+              <h3 data-i18n="cities.mumTitle">Maharashtra (Mumbai MMR)</h3>
               <p data-i18n="cities.mumDesc">IGR Maharashtra records - integration in progress</p>
             </div>
             <span class="badge-soon-hub" data-i18n="cities.soonBadge">Coming Soon</span>
           </div>
-          <button class="btn btn-outline" style="width: 100%; font-size: 13px;" onclick="notifyCity('Mumbai')" data-i18n="cities.notifyBtn">Notify Me</button>
+          <button class="btn btn-outline" style="width: 100%; font-size: 13px;" onclick="notifyCity('Maharashtra')" data-i18n="cities.notifyBtn">Notify Me</button>
         </div>
         <div class="city-card city-card--soon">
           <div class="city-card-top">
             <div>
-              <h3 data-i18n="cities.blrTitle">Bengaluru</h3>
+              <h3 data-i18n="cities.blrTitle">Karnataka (Bengaluru)</h3>
               <p data-i18n="cities.blrDesc">Kaveri 2.0 &amp; BDA Khata verification coming soon</p>
             </div>
             <span class="badge-soon-hub" data-i18n="cities.soonBadge">Coming Soon</span>
           </div>
-          <button class="btn btn-outline" style="width: 100%; font-size: 13px;" onclick="notifyCity('Bengaluru')" data-i18n="cities.notifyBtn">Notify Me</button>
+          <button class="btn btn-outline" style="width: 100%; font-size: 13px;" onclick="notifyCity('Karnataka')" data-i18n="cities.notifyBtn">Notify Me</button>
         </div>
       </div>
       <div style="text-align: center; margin-top: 28px;">
-        <a href="cities.html" class="btn btn-outline" data-i18n="cities.viewAll">View All Cities</a>
+        <a href="states.html" class="btn btn-outline" data-i18n="cities.viewAll">View All States &amp; UTs</a>
       </div>
     </div>
   </section>
@@ -894,9 +894,9 @@
               </a>
             </li>
             <li>
-              <a href="cities.html" class="footer-interactive-link">
+              <a href="states.html" class="footer-interactive-link">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span data-i18n="footer.aCities">Operational Cities Hub</span>
+                <span data-i18n="footer.aCities">Operational States Hub</span>
               </a>
             </li>
           </ul>
@@ -947,9 +947,9 @@
         <div class="footer-cities-header">
           <div class="footer-cities-title">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span data-i18n="footer.hCitiesCoverage">All Indian State Capitals &amp; Metro Cities Due Diligence Coverage</span>
+            <span data-i18n="footer.hCitiesCoverage">All Indian States &amp; Union Territories Due Diligence Coverage</span>
           </div>
-          <a href="cities.html#capitals-directory" class="footer-cities-hub-link" data-i18n="footer.viewAllCities">View All Capitals &amp; Jurisdictions &rarr;</a>
+          <a href="states.html#states-directory" class="footer-cities-hub-link" data-i18n="footer.viewAllCities">View All States &amp; Jurisdictions &rarr;</a>
         </div>
         <div class="footer-cities-links-wrap">
           <a href="javascript:void(0)" class="footer-city-tag is-active-hub open-modal-trigger" data-city="Delhi NCR" title="Click to verify Delhi NCR Property">Delhi NCR</a>
@@ -1054,9 +1054,9 @@
       </div>
       <span class="m-center-text" data-i18n="m.report">Get Jamabandi</span>
     </a>
-    <a href="cities.html" class="m-tab-item">
+    <a href="states.html" class="m-tab-item">
       <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      <span data-i18n="m.cities">Cities</span>
+      <span data-i18n="m.cities">States</span>
     </a>
     <a href="contact-us.html" class="m-tab-item">
       <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -1101,7 +1101,7 @@
             <input type="tel" class="field-control" pattern="[0-9]{10}" placeholder="+91 10-digit number" required>
           </div>
           <div class="field-wrap">
-            <label>Select City / State Capital</label>
+            <label>Select State / Jurisdiction</label>
             <select class="field-control" required>
               <optgroup label="Headquarters & Metro s">
                 <option value="Delhi NCR" selected>Delhi NCR</option>

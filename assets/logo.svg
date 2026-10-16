@@ -34,14 +34,17 @@
   </g>
 
   <!-- Brand Typography -->
-  <g transform="translate(82, 45)">
+  <g transform="translate(80, 36)">
     <!-- TITLE -->
-    <text x="0" y="0" font-family="'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif" font-size="28" font-weight="800" fill="#0f2b48" letter-spacing="-0.5">
+    <text x="0" y="0" font-family="'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif" font-size="27" font-weight="800" fill="#0f2b48" letter-spacing="-0.5">
       TITLE<tspan fill="#d97706" font-weight="800">SQUARE</tspan>
     </text>
-    <!-- Tagline -->
-    <text x="1" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10.5" font-weight="600" fill="#64748b" letter-spacing="1.2">
-      PROPERTY TITLE &amp; LEGAL DUE DILIGENCE
+    <!-- Tagline: Due Diligence You Can Trust. Litigation Support You Need. -->
+    <text x="1" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#475569" letter-spacing="0.2">
+      Due Diligence You Can Trust.
+    </text>
+    <text x="1" y="29" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#475569" letter-spacing="0.2">
+      Litigation Support You Need.
     </text>
   </g>
 </svg>
